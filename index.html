@@ -37,8 +37,8 @@
         .header{background:rgba(255,255,255,0.96);backdrop-filter:blur(18px);box-shadow:0 1px 3px rgba(0,0,0,0.08);position:sticky;top:0;z-index:1000;transition:box-shadow .3s}
         .header.scrolled{box-shadow:0 4px 20px rgba(0,0,0,0.12)}
         .header .container{display:flex;justify-content:space-between;align-items:center;height:72px}
-        .logo{font-family:'Plus Jakarta Sans',sans-serif;font-size:26px;font-weight:800;color:var(--primary);text-decoration:none;display:flex;align-items:center;gap:10px}
-        .logo-icon{width:40px;height:40px;background:linear-gradient(135deg,var(--primary),var(--accent));border-radius:10px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:18px;font-weight:700;box-shadow:0 10px 24px rgba(0,69,165,.22)}
+        .logo{text-decoration:none;display:flex;align-items:center}
+        .logo img{height:40px;width:auto}
         .nav-links{display:flex;align-items:center;gap:32px;list-style:none}
         .nav-links a{text-decoration:none;color:var(--text);font-weight:500;font-size:15px;transition:color .2s;position:relative}
         .nav-links a:hover{color:var(--primary)}
@@ -291,8 +291,7 @@
     <header class="header" id="header">
         <div class="container">
             <a href="#" class="logo">
-                <div class="logo-icon">A</div>
-                AAPTEC
+                <img src="images/logo.png" alt="AAPTEC">
             </a>
             <nav>
                 <ul class="nav-links">
@@ -815,8 +814,7 @@
             <div class="footer-grid">
                 <div class="footer-brand">
                     <a href="#" class="logo">
-                        <div class="logo-icon">A</div>
-                        AAPTEC
+                        <img src="images/logo.png" alt="AAPTEC">
                     </a>
                     <p class="en">One-stop solutions for new energy vehicle repair, professional training, and high-quality EV components. Empowering your EV business worldwide.</p>
                     <p class="cn">新能源汽车维修、专业培训和高品质配件的一站式解决方案。助力您的新能源业务走向全球。</p>
