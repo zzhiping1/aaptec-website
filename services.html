@@ -91,13 +91,7 @@
         .service-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
         .service-tag{display:inline-block;padding:6px 14px;border-radius:999px;font-size:12px;font-weight:600;background:var(--primary-light);color:var(--primary)}
         .service-visual{border-radius:16px;overflow:hidden;position:relative}
-        .service-visual-inner{border-radius:16px;height:420px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;font-weight:600;position:relative;overflow:hidden}
-        .service-visual-inner .service-visual-icon{font-size:64px;margin-bottom:16px;filter:drop-shadow(0 4px 12px rgba(0,0,0,0.2))}
-        .service-visual-inner .service-visual-label{font-family:'Plus Jakarta Sans',sans-serif;font-size:20px;font-weight:700;opacity:0.9;letter-spacing:0.5px}
-        .service-visual-inner::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(0,0,0,0.2) 100%)}
-        .visual-training{background:linear-gradient(135deg,#07192F 0%,#0045A5 60%,#00A3FF 100%)}
-        .visual-dispatch{background:linear-gradient(135deg,#003580 0%,#0066cc 50%,#00A3FF 100%)}
-        .visual-solution{background:linear-gradient(135deg,#1a1a2e 0%,#16213e 50%,#0045A5 100%)}
+        .service-visual-inner{border-radius:16px;height:420px;background-size:cover;background-position:center;position:relative;overflow:hidden}
 
         /* CTA */
         .cta-banner{background:linear-gradient(135deg,var(--primary-dark),var(--primary));padding:60px 0;text-align:center;color:#fff}
@@ -182,7 +176,7 @@
     <!-- HEADER -->
     <header class="header" id="header">
         <div class="container">
-            <a href="index.html" class="logo"><img src="images/logo.png" alt="AAPTEC"></a>
+            <a href="index.html" class="logo"><img src="images/logo-header.png" alt="AAPTEC"></a>
             <nav>
                 <ul class="nav-links">
                     <li><a href="services.html"><span class="en">Service</span><span class="cn">服务</span></a></li>
@@ -259,11 +253,7 @@
                     </div>
                 </div>
                 <div class="service-visual">
-                    <div class="service-visual-inner visual-training">
-                        <span class="service-visual-icon">&#128295;</span>
-                        <span class="service-visual-label en">EV Repair Training Center</span>
-                        <span class="service-visual-label cn">新能源维修培训中心</span>
-                    </div>
+                    <div class="service-visual-inner" style="background-image:url('images/svc-detail-training.jpg')"></div>
                 </div>
             </div>
         </div>
@@ -300,11 +290,7 @@
                     </div>
                 </div>
                 <div class="service-visual">
-                    <div class="service-visual-inner visual-dispatch">
-                        <span class="service-visual-icon">&#128101;</span>
-                        <span class="service-visual-label en">Global Technician Network</span>
-                        <span class="service-visual-label cn">全球技师网络</span>
-                    </div>
+                    <div class="service-visual-inner" style="background-image:url('images/svc-detail-talent.jpg')"></div>
                 </div>
             </div>
         </div>
@@ -341,11 +327,7 @@
                     </div>
                 </div>
                 <div class="service-visual">
-                    <div class="service-visual-inner visual-solution">
-                        <span class="service-visual-icon">&#127919;</span>
-                        <span class="service-visual-label en">Business Transformation Hub</span>
-                        <span class="service-visual-label cn">创业转型中心</span>
-                    </div>
+                    <div class="service-visual-inner" style="background-image:url('images/svc-detail-business.jpg')"></div>
                 </div>
             </div>
         </div>
@@ -367,7 +349,7 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <a href="index.html" class="logo"><img src="images/logo.png" alt="AAPTEC"></a>
+                    <a href="index.html" class="logo"><img src="images/logo-header.png" alt="AAPTEC"></a>
                     <p class="en">One-stop solutions for new energy vehicle repair, professional training, and high-quality EV components.</p>
                     <p class="cn">新能源汽车维修、专业培训和高品质配件的一站式解决方案。</p>
                 </div>
@@ -404,8 +386,10 @@
     </footer>
 
     <script>
-        let isCn=false;
-        function toggleLang(){isCn=!isCn;document.body.classList.toggle('cn-mode',isCn);document.getElementById('lang-en').classList.toggle('active',!isCn);document.getElementById('lang-cn').classList.toggle('active',isCn);document.documentElement.lang=isCn?'zh-CN':'en'}
+        let isCn=localStorage.getItem('aaptec-lang')==='cn';
+        function applyLang(){document.body.classList.toggle('cn-mode',isCn);document.getElementById('lang-en').classList.toggle('active',!isCn);document.getElementById('lang-cn').classList.toggle('active',isCn);document.documentElement.lang=isCn?'zh-CN':'en'}
+        function toggleLang(){isCn=!isCn;localStorage.setItem('aaptec-lang',isCn?'cn':'en');applyLang()}
+        applyLang();
         window.addEventListener('scroll',()=>{document.getElementById('header').classList.toggle('scrolled',window.scrollY>20)});
         function toggleMobile(){document.getElementById('mobileNav').classList.toggle('open');document.getElementById('mobileOverlay').classList.toggle('open')}
         const observer=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')})},{threshold:0.1});

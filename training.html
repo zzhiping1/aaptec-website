@@ -78,6 +78,7 @@
         .course-detail-inner.reverse{direction:rtl}.course-detail-inner.reverse>*{direction:ltr}
 
         .course-detail-left{position:relative}
+        .course-img{width:100%;height:220px;background-size:cover;background-position:center;border-radius:14px;margin-bottom:20px}
         .course-badge{display:inline-block;padding:5px 16px;border-radius:999px;font-size:12px;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:16px}
         .course-badge.beginner{background:var(--success)}
         .course-badge.advanced{background:var(--accent)}
@@ -218,7 +219,7 @@
     <!-- HEADER -->
     <header class="header" id="header">
         <div class="container">
-            <a href="index.html" class="logo"><img src="images/logo.png" alt="AAPTEC"></a>
+            <a href="index.html" class="logo"><img src="images/logo-header.png" alt="AAPTEC"></a>
             <nav>
                 <ul class="nav-links">
                     <li><a href="services.html"><span class="en">Service</span><span class="cn">服务</span></a></li>
@@ -277,7 +278,7 @@
             <div class="course-detail-inner fade-up">
                 <div class="course-detail-left">
                     <div class="course-badge beginner">Beginner / 入门</div>
-                    <div class="course-detail-icon">🔋</div>
+                    <div class="course-img" style="background-image:url('images/course-beginner.jpg')"></div>
                     <h2 class="en">0-Basic Course</h2>
                     <h2 class="cn">零基础课程</h2>
                     <div class="duration">
@@ -321,7 +322,7 @@
             <div class="course-detail-inner fade-up">
                 <div class="course-detail-left">
                     <div class="course-badge advanced">Advanced / 进阶</div>
-                    <div class="course-detail-icon">⚡</div>
+                    <div class="course-img" style="background-image:url('images/course-advanced.jpg')"></div>
                     <h2 class="en">Advanced Course</h2>
                     <h2 class="cn">进阶学习</h2>
                     <div class="duration">
@@ -365,7 +366,7 @@
             <div class="course-detail-inner fade-up">
                 <div class="course-detail-left">
                     <div class="course-badge master">Master / 大师</div>
-                    <div class="course-detail-icon">🏆</div>
+                    <div class="course-img" style="background-image:url('images/course-master.jpg')"></div>
                     <h2 class="en">Master Course</h2>
                     <h2 class="cn">大师课</h2>
                     <div class="duration">
@@ -409,7 +410,7 @@
             <div class="course-detail-inner fade-up">
                 <div class="course-detail-left">
                     <div class="course-badge custom">Custom / 定制</div>
-                    <div class="course-detail-icon">🎯</div>
+                    <div class="course-img" style="background-image:url('images/course-custom.jpg')"></div>
                     <h2 class="en">Customized Course</h2>
                     <h2 class="cn">定制化课程</h2>
                     <div class="duration">
@@ -463,7 +464,7 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <a href="index.html" class="logo"><img src="images/logo.png" alt="AAPTEC"></a>
+                    <a href="index.html" class="logo"><img src="images/logo-header.png" alt="AAPTEC"></a>
                     <p class="en">One-stop solutions for new energy vehicle repair, professional training, and high-quality EV components.</p>
                     <p class="cn">新能源汽车维修、专业培训和高品质配件的一站式解决方案。</p>
                 </div>
@@ -557,8 +558,10 @@
 
     <script>
         /* Language Toggle */
-        let isCn=false;
-        function toggleLang(){isCn=!isCn;document.body.classList.toggle('cn-mode',isCn);document.getElementById('lang-en').classList.toggle('active',!isCn);document.getElementById('lang-cn').classList.toggle('active',isCn);document.documentElement.lang=isCn?'zh-CN':'en'}
+        let isCn=localStorage.getItem('aaptec-lang')==='cn';
+        function applyLang(){document.body.classList.toggle('cn-mode',isCn);document.getElementById('lang-en').classList.toggle('active',!isCn);document.getElementById('lang-cn').classList.toggle('active',isCn);document.documentElement.lang=isCn?'zh-CN':'en'}
+        function toggleLang(){isCn=!isCn;localStorage.setItem('aaptec-lang',isCn?'cn':'en');applyLang()}
+        applyLang();
 
         /* Header scroll effect */
         window.addEventListener('scroll',()=>{document.getElementById('header').classList.toggle('scrolled',window.scrollY>20)});

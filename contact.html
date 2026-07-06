@@ -174,7 +174,7 @@
     <!-- HEADER -->
     <header class="header" id="header">
         <div class="container">
-            <a href="index.html" class="logo"><img src="images/logo.png" alt="AAPTEC"></a>
+            <a href="index.html" class="logo"><img src="images/logo-header.png" alt="AAPTEC"></a>
             <nav>
                 <ul class="nav-links">
                     <li><a href="services.html"><span class="en">Service</span><span class="cn">服务</span></a></li>
@@ -329,7 +329,7 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <a href="index.html" class="logo"><img src="images/logo.png" alt="AAPTEC"></a>
+                    <a href="index.html" class="logo"><img src="images/logo-header.png" alt="AAPTEC"></a>
                     <p class="en">One-stop solutions for new energy vehicle repair, professional training, and high-quality EV components.</p>
                     <p class="cn">新能源汽车维修、专业培训和高品质配件的一站式解决方案。</p>
                 </div>
@@ -366,8 +366,10 @@
     </footer>
 
     <script>
-        let isCn=false;
-        function toggleLang(){isCn=!isCn;document.body.classList.toggle('cn-mode',isCn);document.getElementById('lang-en').classList.toggle('active',!isCn);document.getElementById('lang-cn').classList.toggle('active',isCn);document.documentElement.lang=isCn?'zh-CN':'en'}
+        let isCn=localStorage.getItem('aaptec-lang')==='cn';
+        function applyLang(){document.body.classList.toggle('cn-mode',isCn);document.getElementById('lang-en').classList.toggle('active',!isCn);document.getElementById('lang-cn').classList.toggle('active',isCn);document.documentElement.lang=isCn?'zh-CN':'en'}
+        function toggleLang(){isCn=!isCn;localStorage.setItem('aaptec-lang',isCn?'cn':'en');applyLang()}
+        applyLang();
         window.addEventListener('scroll',()=>{document.getElementById('header').classList.toggle('scrolled',window.scrollY>20)});
         function toggleMobile(){document.getElementById('mobileNav').classList.toggle('open');document.getElementById('mobileOverlay').classList.toggle('open')}
         function updateCounter(){const t=document.getElementById('inquiryText');document.getElementById('charCount').textContent=t.value.length}
