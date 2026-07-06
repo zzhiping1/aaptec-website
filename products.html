@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - AAPTEC</title>
+    <meta name="description" content="AAPTEC training products and resources: online courses, teaching equipment, EV repair materials, and component procurement.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        :root{
+            --primary:#0045A5;
+            --primary-dark:#003580;
+            --primary-deep:#07192F;
+            --primary-light:#E8F4FD;
+            --accent:#00A3FF;
+            --success:#059669;
+            --white:#FFFFFF;
+            --text:#303030;
+            --text-light:#6B7280;
+            --bg:#F8FAFC;
+            --border:#E5E7EB;
+            --shadow:0 18px 50px rgba(15,35,70,0.10);
+            --gold:#F59E0B;
+        }
+        html{scroll-behavior:smooth;scroll-padding-top:92px}
+        body{font-family:'Inter',sans-serif;color:var(--text);line-height:1.6;overflow-x:hidden}
+
+        /* TOP BAR */
+        .topbar{background:var(--primary-dark);color:rgba(255,255,255,0.9);font-size:13px;padding:8px 0}
+        .topbar .container{display:flex;justify-content:space-between;align-items:center}
+        .topbar a{color:rgba(255,255,255,0.9);text-decoration:none;margin-left:16px;transition:color .2s}
+        .topbar a:hover{color:#fff}
+
+        /* HEADER */
+        .header{background:rgba(255,255,255,0.96);backdrop-filter:blur(18px);box-shadow:0 1px 3px rgba(0,0,0,0.08);position:sticky;top:0;z-index:1000;transition:box-shadow .3s}
+        .header.scrolled{box-shadow:0 4px 20px rgba(0,0,0,0.12)}
+        .header .container{display:flex;justify-content:space-between;align-items:center;height:80px}
+        .logo{text-decoration:none;display:flex;align-items:center}
+        .logo img{height:48px;width:auto}
+        .nav-links{display:flex;align-items:center;gap:32px;list-style:none}
+        .nav-links a{text-decoration:none;color:var(--text);font-weight:500;font-size:15px;transition:color .2s;position:relative}
+        .nav-links a:hover{color:var(--primary)}
+        .nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--primary);transition:width .3s}
+        .nav-links a:hover::after{width:100%}
+        .lang-toggle{display:flex;align-items:center;background:var(--primary-light);border-radius:20px;padding:3px;cursor:pointer;border:none}
+        .lang-btn{padding:5px 14px;border-radius:18px;font-size:13px;font-weight:600;border:none;cursor:pointer;transition:all .2s;font-family:'Inter',sans-serif}
+        .lang-btn.active{background:var(--primary);color:#fff}
+        .lang-btn:not(.active){background:transparent;color:var(--primary)}
+        .cta-btn{background:var(--primary);color:#fff;padding:10px 24px;border-radius:8px;text-decoration:none;font-weight:600;font-size:14px;transition:all .2s;border:none;cursor:pointer;display:inline-flex;align-items:center;gap:6px}
+        .cta-btn:hover{background:var(--primary-dark);transform:translateY(-1px);box-shadow:0 4px 12px rgba(0,69,165,0.3)}
+        .mobile-menu{display:none;background:none;border:none;cursor:pointer;padding:8px}
+        .mobile-menu span{display:block;width:24px;height:2px;background:var(--text);margin:5px 0;transition:all .3s}
+
+        .container{max-width:1200px;margin:0 auto;padding:0 24px}
+
+        /* HERO */
+        .hero{background:radial-gradient(circle at 80% 20%,rgba(0,163,255,.36),transparent 34%),linear-gradient(135deg,var(--primary-deep) 0%,var(--primary-dark) 45%,var(--primary) 100%);color:#fff;padding:80px 0 90px;position:relative;overflow:hidden;text-align:center}
+        .hero::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px);background-size:52px 52px;opacity:.65}
+        .hero::after{content:'';position:absolute;right:4%;bottom:-70px;width:42%;height:170px;background:rgba(0,163,255,.18);filter:blur(70px)}
+        .hero .container{position:relative;z-index:1}
+        .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.24);padding:8px 20px;border-radius:999px;font-size:14px;font-weight:600;margin-bottom:24px;backdrop-filter:blur(10px)}
+        .hero h1{font-family:'Plus Jakarta Sans',sans-serif;font-size:48px;font-weight:800;line-height:1.1;margin-bottom:20px}
+        .hero h1 span{color:#A7D6FF}
+        .hero p{font-size:18px;line-height:1.7;color:rgba(255,255,255,0.85);margin:0 auto 32px;max-width:680px}
+        .hero-buttons{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+        /* BUTTONS */
+        .btn-white{background:#fff;color:var(--primary);padding:14px 32px;border-radius:10px;text-decoration:none;font-weight:600;font-size:16px;transition:all .2s;display:inline-flex;align-items:center;gap:8px}
+        .btn-white:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,0.15)}
+        .btn-outline{background:transparent;color:#fff;border:2px solid rgba(255,255,255,0.4);padding:12px 32px;border-radius:10px;text-decoration:none;font-weight:600;font-size:16px;transition:all .2s;display:inline-flex;align-items:center;gap:8px}
+        .btn-outline:hover{background:rgba(255,255,255,0.1);border-color:#fff}
+        .btn-primary{background:var(--primary);color:#fff;padding:14px 32px;border-radius:10px;text-decoration:none;font-weight:600;font-size:16px;transition:all .2s;border:none;cursor:pointer;display:inline-flex;align-items:center;gap:8px}
+        .btn-primary:hover{background:var(--primary-dark);transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,69,165,0.3)}
+
+        /* SECTIONS */
+        .section{padding:80px 0}
+        .section-header{text-align:center;margin-bottom:50px}
+        .section-tag{display:inline-block;background:var(--primary-light);color:var(--primary);padding:6px 16px;border-radius:20px;font-size:13px;font-weight:600;margin-bottom:14px;text-transform:uppercase;letter-spacing:0.5px}
+        .section-header h2{font-family:'Plus Jakarta Sans',sans-serif;font-size:36px;font-weight:700;color:var(--text);margin-bottom:14px}
+        .section-header p{font-size:17px;color:var(--text-light);max-width:600px;margin:0 auto}
+
+        /* PRODUCT DETAIL SECTION */
+        .product-detail{padding:80px 0;position:relative;overflow:hidden}
+        .product-detail:nth-child(odd){background:var(--bg)}
+        .product-detail .container{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+        .product-detail.reverse .container{direction:rtl}
+        .product-detail.reverse .container > *{direction:ltr}
+        .product-detail-visual{border-radius:18px;padding:50px 40px;display:flex;align-items:center;justify-content:center;min-height:360px;position:relative;overflow:hidden}
+        .product-detail-visual::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,0.06) 1px,transparent 1px),linear-gradient(225deg,rgba(255,255,255,0.04) 1px,transparent 1px);background-size:30px 30px;opacity:.5}
+        .product-detail-visual .icon{font-size:100px;filter:drop-shadow(0 10px 30px rgba(0,0,0,0.2));position:relative;z-index:1}
+        .product-detail-info h2{font-family:'Plus Jakarta Sans',sans-serif;font-size:32px;font-weight:700;margin-bottom:10px}
+        .product-detail-info .subtitle{font-size:17px;color:var(--text-light);line-height:1.7;margin-bottom:24px}
+        .feature-list{list-style:none;margin-bottom:28px;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+        .feature-list li{display:flex;align-items:center;gap:10px;font-size:14px;font-weight:500;padding:10px 14px;background:var(--white);border:1px solid var(--border);border-radius:10px;transition:all .2s}
+        .feature-list li:hover{border-color:var(--primary);box-shadow:0 2px 8px rgba(0,69,165,0.08)}
+        .feature-check{width:22px;height:22px;background:var(--primary-light);color:var(--primary);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0}
+
+        /* INQUIRE BUTTON */
+        .inquire-btn{background:var(--primary);color:#fff;padding:14px 32px;border-radius:10px;border:none;cursor:pointer;font-weight:600;font-size:15px;transition:all .2s;display:inline-flex;align-items:center;gap:8px;font-family:'Inter',sans-serif}
+        .inquire-btn:hover{background:var(--primary-dark);transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,69,165,0.3)}
+
+        /* MODAL */
+        .modal-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:5000;display:none;align-items:center;justify-content:center;padding:24px;backdrop-filter:blur(4px)}
+        .modal-overlay.open{display:flex}
+        .modal{background:var(--white);border-radius:16px;width:100%;max-width:560px;max-height:90vh;overflow-y:auto;position:relative;box-shadow:0 24px 60px rgba(0,0,0,0.2)}
+        .modal-header{display:flex;justify-content:space-between;align-items:center;padding:24px 28px 0;border-bottom:1px solid var(--border);padding-bottom:18px}
+        .modal-header h3{font-family:'Plus Jakarta Sans',sans-serif;font-size:22px;font-weight:700}
+        .modal-close{background:none;border:none;font-size:26px;cursor:pointer;color:var(--text-light);transition:color .2s;line-height:1}
+        .modal-close:hover{color:var(--text)}
+        .modal-body{padding:24px 28px 28px}
+        .form-group{margin-bottom:18px}
+        .form-group label{display:block;font-size:14px;font-weight:600;color:var(--text);margin-bottom:6px}
+        .form-group input,.form-group select,.form-group textarea{width:100%;padding:11px 14px;border:1px solid var(--border);border-radius:8px;font-size:14px;font-family:'Inter',sans-serif;color:var(--text);transition:border-color .2s,box-shadow .2s;background:var(--white)}
+        .form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:none;border-color:var(--primary);box-shadow:0 0 0 3px rgba(0,69,165,0.1)}
+        .form-group textarea{resize:vertical;min-height:100px}
+        .char-counter{text-align:right;font-size:12px;color:var(--text-light);margin-top:4px}
+        .char-counter.warn{color:#dc2626}
+        .form-submit{width:100%;background:var(--primary);color:#fff;padding:14px;border:none;border-radius:8px;font-size:15px;font-weight:600;cursor:pointer;transition:all .2s;font-family:'Inter',sans-serif}
+        .form-submit:hover{background:var(--primary-dark)}
+
+        /* CTA */
+        .cta-banner{background:linear-gradient(135deg,var(--primary-dark),var(--primary));padding:60px 0;text-align:center;color:#fff}
+        .cta-banner h2{font-family:'Plus Jakarta Sans',sans-serif;font-size:32px;font-weight:700;margin-bottom:14px}
+        .cta-banner p{font-size:17px;color:rgba(255,255,255,0.85);margin-bottom:28px}
+
+        /* FOOTER */
+        .footer{background:var(--text);color:rgba(255,255,255,0.7);padding:60px 0 0}
+        .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px}
+        .footer-brand .logo{margin-bottom:16px;display:inline-flex}
+        .footer-brand .logo img{height:40px}
+        .footer-brand p{font-size:14px;line-height:1.7;color:rgba(255,255,255,0.6);margin-top:12px}
+        .footer h4{color:#fff;font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;font-weight:700;margin-bottom:18px}
+        .footer-links{list-style:none}
+        .footer-links li{margin-bottom:10px}
+        .footer-links a{color:rgba(255,255,255,0.6);text-decoration:none;font-size:14px;transition:color .2s}
+        .footer-links a:hover{color:#fff}
+        .footer-bottom{border-top:1px solid rgba(255,255,255,0.1);padding:20px 0;text-align:center;font-size:13px;color:rgba(255,255,255,0.4)}
+
+        /* LANGUAGE */
+        .cn{display:none!important}
+        body.cn-mode .en{display:none!important}
+        body.cn-mode span.cn,body.cn-mode a.cn{display:inline!important}
+        body.cn-mode div.cn,body.cn-mode p.cn,body.cn-mode h1.cn,body.cn-mode h2.cn,body.cn-mode h3.cn,body.cn-mode h4.cn,body.cn-mode label.cn{display:block!important}
+
+        /* ANIMATIONS */
+        .fade-up{opacity:1;transform:none;transition:opacity .45s,transform .45s}
+
+        /* RESPONSIVE */
+        @media(max-width:968px){
+            .product-detail .container{grid-template-columns:1fr}
+            .product-detail.reverse .container{direction:ltr}
+            .product-detail-visual{min-height:260px}
+            .feature-list{grid-template-columns:1fr}
+            .footer-grid{grid-template-columns:1fr 1fr}
+            .nav-links{display:none}
+            .mobile-menu{display:block}
+            .hero h1{font-size:36px}
+        }
+        @media(max-width:640px){
+            .hero{padding:60px 0 70px}
+            .hero h1{font-size:28px}
+            .product-detail-info h2{font-size:24px}
+            .feature-list{grid-template-columns:1fr}
+            .footer-grid{grid-template-columns:1fr}
+            .topbar .container{flex-direction:column;gap:4px}
+            .header .container{height:66px}
+            .logo img{height:36px}
+            .cta-btn{display:none}
+            .modal{max-height:95vh}
+            .modal-body{padding:20px}
+            .modal-header{padding:20px 20px 0}
+        }
+
+        /* MOBILE NAV */
+        .mobile-nav{position:fixed;top:0;right:-100%;width:300px;height:100vh;background:var(--white);z-index:2000;box-shadow:-4px 0 20px rgba(0,0,0,0.1);transition:right .3s;padding:24px}
+        .mobile-nav.open{right:0}
+        .mobile-nav-close{background:none;border:none;font-size:24px;cursor:pointer;float:right;margin-bottom:24px}
+        .mobile-nav ul{list-style:none}
+        .mobile-nav ul li{margin-bottom:8px}
+        .mobile-nav ul a{display:block;padding:12px;color:var(--text);text-decoration:none;font-weight:500;border-radius:8px;transition:background .2s}
+        .mobile-nav ul a:hover{background:var(--primary-light);color:var(--primary)}
+        .mobile-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.4);z-index:1999;display:none}
+        .mobile-overlay.open{display:block}
+    </style>
+</head>
+<body>
+
+    <!-- TOP BAR -->
+    <div class="topbar">
+        <div class="container">
+            <span class="en">One-Stop EV Solutions: Repair | Training | Components</span>
+            <span class="cn">新能源汽车一站式解决方案：维修 | 教学 | 配件</span>
+            <div>
+                <a href="https://wa.me/8613677310469" target="_blank">WhatsApp</a>
+                <a href="https://facebook.com/EVaaptec" target="_blank">Facebook</a>
+                <a href="mailto:sales@aaptec.com.cn">sales@aaptec.com.cn</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- HEADER -->
+    <header class="header" id="header">
+        <div class="container">
+            <a href="index.html" class="logo"><img src="images/logo.png" alt="AAPTEC"></a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="services.html"><span class="en">Service</span><span class="cn">服务</span></a></li>
+                    <li><a href="training.html"><span class="en">Training</span><span class="cn">课程</span></a></li>
+                    <li><a href="products.html"><span class="en">Products</span><span class="cn">产品</span></a></li>
+                    <li><a href="about.html"><span class="en">About Us</span><span class="cn">关于我们</span></a></li>
+                    <li><a href="contact.html"><span class="en">Contact</span><span class="cn">联系我们</span></a></li>
+                </ul>
+            </nav>
+            <div style="display:flex;align-items:center;gap:16px">
+                <button class="lang-toggle" onclick="toggleLang()">
+                    <span class="lang-btn active" id="lang-en">EN</span>
+                    <span class="lang-btn" id="lang-cn">CN</span>
+                </button>
+                <a href="contact.html" class="cta-btn en">Get a Quote</a>
+                <a href="contact.html" class="cta-btn cn">获取报价</a>
+                <button class="mobile-menu" onclick="toggleMobile()"><span></span><span></span><span></span></button>
+            </div>
+        </div>
+    </header>
+
+    <!-- MOBILE NAV -->
+    <div class="mobile-overlay" id="mobileOverlay" onclick="toggleMobile()"></div>
+    <div class="mobile-nav" id="mobileNav">
+        <button class="mobile-nav-close" onclick="toggleMobile()">&times;</button>
+        <ul>
+            <li><a href="services.html" onclick="toggleMobile()"><span class="en">Service</span><span class="cn">服务</span></a></li>
+            <li><a href="training.html" onclick="toggleMobile()"><span class="en">Training</span><span class="cn">课程</span></a></li>
+            <li><a href="products.html" onclick="toggleMobile()"><span class="en">Products</span><span class="cn">产品</span></a></li>
+            <li><a href="about.html" onclick="toggleMobile()"><span class="en">About Us</span><span class="cn">关于我们</span></a></li>
+            <li><a href="contact.html" onclick="toggleMobile()"><span class="en">Contact</span><span class="cn">联系我们</span></a></li>
+        </ul>
+    </div>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-badge en">Training Products & Resources</div>
+            <div class="hero-badge cn">教学产品与资源</div>
+            <h1 class="en">Training Products<br>& <span>Resources</span></h1>
+            <h1 class="cn">教学产品<br>与 <span>资源</span></h1>
+            <p class="en">Professional tools, online courses, technical materials, and component sourcing — everything you need for EV repair training.</p>
+            <p class="cn">专业工具、线上课程、技术资料和配件采购——新能源维修培训所需的一切。</p>
+            <div class="hero-buttons">
+                <a href="#online" class="btn-white"><span class="en">Online Courses</span><span class="cn">线上课程</span> →</a>
+                <a href="#equipment" class="btn-outline"><span class="en">Equipment</span><span class="cn">教学设备</span></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 1. ONLINE COURSES -->
+    <section class="product-detail" id="online">
+        <div class="container">
+            <div class="product-detail-visual" style="background:linear-gradient(135deg,#07192F,#0045A5)">
+                <div class="icon">💻</div>
+            </div>
+            <div class="product-detail-info">
+                <h2 class="en">Online Courses</h2>
+                <h2 class="cn">线上课程</h2>
+                <p class="subtitle en">Self-paced video courses covering all EV systems. Learn anywhere, anytime with lifetime access to our comprehensive curriculum.</p>
+                <p class="subtitle cn">自主进度视频课程，涵盖所有新能源汽车系统。随时随地学习，课程终身有效。</p>
+                <ul class="feature-list">
+                    <li><span class="feature-check">✓</span><span class="en">HD Video Lessons</span><span class="cn">高清视频课程</span></li>
+                    <li><span class="feature-check">✓</span><span class="en">Practical Demos</span><span class="cn">实操演示</span></li>
+                    <li><span class="feature-check">✓</span><span class="en">Quizzes & Assessments</span><span class="cn">测验与考核</span></li>
+                    <li><span class="feature-check">✓</span><span class="en">Certificate of Completion</span><span class="cn">结业证书</span></li>
+                    <li><span class="feature-check">✓</span><span class="en">Lifetime Access</span><span class="cn">终身有效</span></li>
+                    <li><span class="feature-check">✓</span><span class="en">Multi-language Subtitles</span><span class="cn">多语言字幕</span></li>
+                </ul>
+                <button class="inquire-btn" onclick="openModal('Online Courses / 线上课程')">
+                    <span class="en">Inquire Now</span>
+                    <span class="cn">立即咨询</span> →
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. TEACHING EQUIPMENT -->
+    <section class="product-detail reverse" id="equipment">
+        <div class="container">
+            <div class="product-detail-visual" style="background:linear-gradient(135deg,#003580,#00A3FF)">
+                <div class="icon">🔧</div>
+            </div>
+            <div class="product-detail-info">
+                <h2 class="en">Teaching Instruments & Equipment</h2>
+                <h2 class="cn">教学仪器和设备</h2>
+                <p class="subtitle en">Professional-grade diagnostic tools, training rigs, and lab equipment for hands-on EV education.</p>
+                <p class="subtitle cn">专业级诊断工具、实训台架和实验室设备，支持新能源汽车实操教学。</p>
+                <ul class="feature-list">
+                    <li><span class="feature-check">✓</span><span class="en">EV Diagnostic Scanners</span><span class="cn">新能源诊断扫描仪</span></li>
+                    <li><span class="feature-check">✓</span><span class="en">Battery Training Rigs</span><span class="cn">电池实训台架</span></li>
+                    <li><span class="feature-check">✓</span><span class="en">Motor Test Benches</span><span class="cn">电机测试台</span></li>
+                    <li><span class="feature-check">✓</span><span class="en">High-Voltage Safety Equipment</span><span class="cn">高压安全设备</span></li>
+                    <li><span class="feature-check">✓</span><span class="en">Simulation Software</span><span class="cn">仿真软件</span></li>
+                </ul>
+                <button class="inquire-btn" onclick="openModal('Teaching Instruments & Equipment / 教学仪器和设备')">
+                    <span class="en">Inquire Now</span>
+                    <span class="cn">立即咨询</span> →
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. EV REPAIR MATERIALS -->
+    <section class="product-detail" id="materials">
+        <div class="container">
+            <div class="product-detail-visual" style="background:linear-gradient(135deg,#1a1a2e,#16213e)">
+                <div class="icon">📚</div>
+            </div>
+            <div class="product-detail-info">
+                <h2 class="en">EV Repair Materials</h2>
+                <h2 class="cn">电车维修资料</h2>
+                <p class="subtitle en">Comprehensive technical manuals, wiring diagrams, and repair guides for all major EV brands: BYD, NIO, Tesla, XPeng, Li Auto, and more.</p>
+                <p class="subtitle cn">全面的技术手册、电路图和维修指南，覆盖所有主要新能源品牌：比亚迪、蔚来、特斯拉、小鹏、理想等。</p>
+                <ul class="feature-list">
+                    <li><span class="feature-check">✓</span><span class="en">Service Manuals</span><span class="cn">维修手册</span></li>
+                    <li><span class="feature-check">✓</span><span class="en">Wiring Diagrams</span><span class="cn">电路图</span></li>
+                    <li><span class="feature-check">✓</span><span class="en">Fault Code Databases</span><span class="cn">故障码数据库</span></li>
+                    <li><span class="feature-check">✓</span><span class="en">Repair Procedures</span><span class="cn">维修流程</span></li>
+                    <li><span class="feature-check">✓</span><span class="en">Technical Bulletins</span><span class="cn">技术通报</span></li>
+                </ul>
+                <button class="inquire-btn" onclick="openModal('EV Repair Materials / 电车维修资料')">
+                    <span class="en">Inquire Now</span>
+                    <span class="cn">立即咨询</span> →
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. COMPONENT PROCUREMENT -->
+    <section class="product-detail reverse" id="components">
+        <div class="container">
+            <div class="product-detail-visual" style="background:linear-gradient(135deg,#0045A5,#059669)">
+                <div class="icon">📦</div>
+            </div>
+            <div class="product-detail-info">
+                <h2 class="en">Component Procurement</h2>
+                <h2 class="cn">配件代采</h2>
+                <p class="subtitle en">Source high-quality EV components directly from Chinese manufacturers. Battery modules, motors, controllers, sensors, and more.</p>
+                <p class="subtitle cn">直接从中国制造商采购高品质新能源配件。电池模组、电机、控制器、传感器等。</p>
+                <ul class="feature-list">
+                    <li><span class="feature-check">✓</span><span class="en">Genuine Parts</span><span class="cn">原厂配件</span></li>
+                    <li><span class="feature-check">✓</span><span class="en">Competitive Pricing</span><span class="cn">价格优势</span></li>
+                    <li><span class="feature-check">✓</span><span class="en">Global Shipping</span><span class="cn">全球发货</span></li>
+                    <li><span class="feature-check">✓</span><span class="en">Quality Guaranteed</span><span class="cn">质量保证</span></li>
+                    <li><span class="feature-check">✓</span><span class="en">Bulk Orders</span><span class="cn">支持批量采购</span></li>
+                    <li><span class="feature-check">✓</span><span class="en">Technical Support</span><span class="cn">技术支持</span></li>
+                </ul>
+                <button class="inquire-btn" onclick="openModal('Component Procurement / 配件代采')">
+                    <span class="en">Inquire Now</span>
+                    <span class="cn">立即咨询</span> →
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-banner">
+        <div class="container fade-up">
+            <h2 class="en">Can't Find What You Need?</h2>
+            <h2 class="cn">没找到您需要的？</h2>
+            <p class="en">Contact us for custom solutions tailored to your training or business requirements.</p>
+            <p class="cn">联系我们，获取为您量身定制的培训或业务解决方案。</p>
+            <a href="contact.html" class="btn-white"><span class="en">Contact Us</span><span class="cn">联系我们</span> →</a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo"><img src="images/logo.png" alt="AAPTEC"></a>
+                    <p class="en">One-stop solutions for new energy vehicle repair, professional training, and high-quality EV components.</p>
+                    <p class="cn">新能源汽车维修、专业培训和高品质配件的一站式解决方案。</p>
+                </div>
+                <div>
+                    <h4 class="en">Services</h4><h4 class="cn">服务</h4>
+                    <ul class="footer-links">
+                        <li><a href="training.html" class="en">EV Repair Training</a><a href="training.html" class="cn">维修培训</a></li>
+                        <li><a href="services.html" class="en">Talent Dispatch</a><a href="services.html" class="cn">人才输送</a></li>
+                        <li><a href="services.html" class="en">Business Solutions</a><a href="services.html" class="cn">创业转型</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="en">Products</h4><h4 class="cn">产品</h4>
+                    <ul class="footer-links">
+                        <li><a href="products.html" class="en">Online Courses</a><a href="products.html" class="cn">线上课程</a></li>
+                        <li><a href="products.html" class="en">Equipment</a><a href="products.html" class="cn">教学设备</a></li>
+                        <li><a href="products.html" class="en">Materials</a><a href="products.html" class="cn">维修资料</a></li>
+                        <li><a href="products.html" class="en">Components</a><a href="products.html" class="cn">配件代采</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="en">Contact</h4><h4 class="cn">联系方式</h4>
+                    <ul class="footer-links">
+                        <li><a href="mailto:sales@aaptec.com.cn">sales@aaptec.com.cn</a></li>
+                        <li><a href="https://wa.me/8613677310469" target="_blank">WhatsApp: +86 136 7731 0469</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span class="en">&copy; 2026 AAPTEC. All rights reserved.</span>
+                <span class="cn">&copy; 2026 AAPTEC 版权所有</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- INQUIRY MODAL -->
+    <div class="modal-overlay" id="inquiryModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 class="en">Inquire Now</h3>
+                <h3 class="cn">立即咨询</h3>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="inquiryForm" onsubmit="submitForm(event)">
+                    <div class="form-group">
+                        <label class="en">Name *</label>
+                        <label class="cn">姓名 *</label>
+                        <input type="text" id="formName" required placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label class="en">Country *</label>
+                        <label class="cn">国家 *</label>
+                        <input type="text" id="formCountry" required placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label class="en">Email *</label>
+                        <label class="cn">邮箱 *</label>
+                        <input type="email" id="formEmail" required placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label class="en">WhatsApp</label>
+                        <label class="cn">WhatsApp</label>
+                        <input type="tel" id="formWhatsapp" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label class="en">Subject *</label>
+                        <label class="cn">主题 *</label>
+                        <select id="formSubject" required>
+                            <option value="" disabled selected></option>
+                            <option value="Online Courses / 线上课程">Online Courses / 线上课程</option>
+                            <option value="Teaching Instruments & Equipment / 教学仪器和设备">Teaching Instruments & Equipment / 教学仪器和设备</option>
+                            <option value="EV Repair Materials / 电车维修资料">EV Repair Materials / 电车维修资料</option>
+                            <option value="Component Procurement / 配件代采">Component Procurement / 配件代采</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="en">Inquiry (max 250 chars) *</label>
+                        <label class="cn">咨询内容（最多250字） *</label>
+                        <textarea id="formInquiry" maxlength="250" rows="4" required oninput="updateCounter()"></textarea>
+                        <div class="char-counter" id="charCounter">0 / 250</div>
+                    </div>
+                    <button type="submit" class="form-submit">
+                        <span class="en">Send Inquiry</span>
+                        <span class="cn">发送咨询</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let isCn=false;
+        function toggleLang(){isCn=!isCn;document.body.classList.toggle('cn-mode',isCn);document.getElementById('lang-en').classList.toggle('active',!isCn);document.getElementById('lang-cn').classList.toggle('active',isCn);document.documentElement.lang=isCn?'zh-CN':'en'}
+        window.addEventListener('scroll',()=>{document.getElementById('header').classList.toggle('scrolled',window.scrollY>20)});
+        function toggleMobile(){document.getElementById('mobileNav').classList.toggle('open');document.getElementById('mobileOverlay').classList.toggle('open')}
+        const observer=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')})},{threshold:0.1});
+        document.querySelectorAll('.fade-up').forEach(el=>observer.observe(el));
+        document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',function(e){e.preventDefault();const t=document.querySelector(this.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth',block:'start'})})});
+
+        // Modal
+        function openModal(subject){
+            document.getElementById('inquiryModal').classList.add('open');
+            document.getElementById('formSubject').value=subject;
+            document.body.style.overflow='hidden';
+            updateCounter();
+        }
+        function closeModal(){
+            document.getElementById('inquiryModal').classList.remove('open');
+            document.body.style.overflow='';
+        }
+        document.getElementById('inquiryModal').addEventListener('click',function(e){if(e.target===this)closeModal()});
+
+        // Char counter
+        function updateCounter(){
+            const ta=document.getElementById('formInquiry');
+            const counter=document.getElementById('charCounter');
+            const len=ta.value.length;
+            counter.textContent=len+' / 250';
+            counter.classList.toggle('warn',len>=250);
+        }
+
+        // Form submit
+        function submitForm(e){
+            e.preventDefault();
+            const name=document.getElementById('formName').value;
+            const country=document.getElementById('formCountry').value;
+            const email=document.getElementById('formEmail').value;
+            const whatsapp=document.getElementById('formWhatsapp').value;
+            const subject=document.getElementById('formSubject').value;
+            const inquiry=document.getElementById('formInquiry').value;
+            const body=encodeURIComponent('Name: '+name+'\nCountry: '+country+'\nEmail: '+email+'\nWhatsApp: '+whatsapp+'\n\nSubject: '+subject+'\n\nInquiry:\n'+inquiry);
+            window.location.href='mailto:sales@aaptec.com.cn?subject='+encodeURIComponent(subject)+'&body='+body;
+            document.getElementById('inquiryForm').reset();
+            closeModal();
+        }
+    </script>
+</body>
+</html>

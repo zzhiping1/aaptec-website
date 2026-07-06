@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - AAPTEC</title>
+    <meta name="description" content="Contact AAPTEC for EV repair services, training courses, equipment inquiries, and component sourcing. We respond within 24 hours.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        :root{
+            --primary:#0045A5;
+            --primary-dark:#003580;
+            --primary-deep:#07192F;
+            --primary-light:#E8F4FD;
+            --accent:#00A3FF;
+            --success:#059669;
+            --white:#FFFFFF;
+            --text:#303030;
+            --text-light:#6B7280;
+            --bg:#F8FAFC;
+            --border:#E5E7EB;
+            --shadow:0 18px 50px rgba(15,35,70,0.10);
+            --gold:#F59E0B;
+        }
+        html{scroll-behavior:smooth;scroll-padding-top:92px}
+        body{font-family:'Inter',sans-serif;color:var(--text);line-height:1.6;overflow-x:hidden}
+
+        /* TOP BAR */
+        .topbar{background:var(--primary-dark);color:rgba(255,255,255,0.9);font-size:13px;padding:8px 0}
+        .topbar .container{display:flex;justify-content:space-between;align-items:center}
+        .topbar a{color:rgba(255,255,255,0.9);text-decoration:none;margin-left:16px;transition:color .2s}
+        .topbar a:hover{color:#fff}
+
+        /* HEADER */
+        .header{background:rgba(255,255,255,0.96);backdrop-filter:blur(18px);box-shadow:0 1px 3px rgba(0,0,0,0.08);position:sticky;top:0;z-index:1000;transition:box-shadow .3s}
+        .header.scrolled{box-shadow:0 4px 20px rgba(0,0,0,0.12)}
+        .header .container{display:flex;justify-content:space-between;align-items:center;height:80px}
+        .logo{text-decoration:none;display:flex;align-items:center}
+        .logo img{height:48px;width:auto}
+        .nav-links{display:flex;align-items:center;gap:32px;list-style:none}
+        .nav-links a{text-decoration:none;color:var(--text);font-weight:500;font-size:15px;transition:color .2s;position:relative}
+        .nav-links a:hover{color:var(--primary)}
+        .nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--primary);transition:width .3s}
+        .nav-links a:hover::after{width:100%}
+        .lang-toggle{display:flex;align-items:center;background:var(--primary-light);border-radius:20px;padding:3px;cursor:pointer;border:none}
+        .lang-btn{padding:5px 14px;border-radius:18px;font-size:13px;font-weight:600;border:none;cursor:pointer;transition:all .2s;font-family:'Inter',sans-serif}
+        .lang-btn.active{background:var(--primary);color:#fff}
+        .lang-btn:not(.active){background:transparent;color:var(--primary)}
+        .cta-btn{background:var(--primary);color:#fff;padding:10px 24px;border-radius:8px;text-decoration:none;font-weight:600;font-size:14px;transition:all .2s;border:none;cursor:pointer;display:inline-flex;align-items:center;gap:6px}
+        .cta-btn:hover{background:var(--primary-dark);transform:translateY(-1px);box-shadow:0 4px 12px rgba(0,69,165,0.3)}
+        .mobile-menu{display:none;background:none;border:none;cursor:pointer;padding:8px}
+        .mobile-menu span{display:block;width:24px;height:2px;background:var(--text);margin:5px 0;transition:all .3s}
+
+        .container{max-width:1200px;margin:0 auto;padding:0 24px}
+
+        /* HERO */
+        .hero{background:radial-gradient(circle at 80% 20%,rgba(0,163,255,.36),transparent 34%),linear-gradient(135deg,var(--primary-deep) 0%,var(--primary-dark) 45%,var(--primary) 100%);color:#fff;padding:80px 0 90px;position:relative;overflow:hidden;text-align:center}
+        .hero::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px);background-size:52px 52px;opacity:.65}
+        .hero::after{content:'';position:absolute;right:4%;bottom:-70px;width:42%;height:170px;background:rgba(0,163,255,.18);filter:blur(70px)}
+        .hero .container{position:relative;z-index:1}
+        .hero h1{font-family:'Plus Jakarta Sans',sans-serif;font-size:48px;font-weight:800;line-height:1.1;margin-bottom:20px}
+        .hero h1 span{color:#A7D6FF}
+        .hero p{font-size:18px;line-height:1.7;color:rgba(255,255,255,0.85);margin:0 auto;max-width:680px}
+
+        /* SECTIONS */
+        .section{padding:80px 0}
+
+        /* CONTACT SECTION */
+        .contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:48px;align-items:start}
+
+        /* CONTACT INFO */
+        .contact-info{padding:40px;background:linear-gradient(135deg,var(--primary-deep) 0%,var(--primary-dark) 60%,var(--primary) 100%);border-radius:16px;color:#fff}
+        .contact-info h2{font-family:'Plus Jakarta Sans',sans-serif;font-size:28px;font-weight:700;margin-bottom:10px}
+        .contact-info>p{font-size:15px;color:rgba(255,255,255,0.8);margin-bottom:36px;line-height:1.7}
+        .info-list{list-style:none;margin-bottom:36px}
+        .info-list li{display:flex;align-items:flex-start;gap:14px;margin-bottom:22px}
+        .info-list .icon-box{width:44px;height:44px;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+        .info-list .info-label{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.8px;color:rgba(255,255,255,0.6);margin-bottom:2px}
+        .info-list .info-value{font-size:15px;font-weight:600;color:#fff;text-decoration:none;transition:color .2s}
+        .info-list .info-value:hover{color:#A7D6FF}
+        .social-links{display:flex;gap:12px;margin-top:auto}
+        .social-link{width:44px;height:44px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:10px;display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:20px;transition:all .2s}
+        .social-link:hover{background:rgba(255,255,255,0.2);transform:translateY(-2px)}
+
+        /* CONTACT FORM */
+        .contact-form-wrap{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:40px;box-shadow:var(--shadow)}
+        .contact-form-wrap h2{font-family:'Plus Jakarta Sans',sans-serif;font-size:28px;font-weight:700;margin-bottom:6px}
+        .contact-form-wrap>p{font-size:15px;color:var(--text-light);margin-bottom:30px}
+        .form-row{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+        .form-group{margin-bottom:18px}
+        .form-group label{display:block;font-size:13px;font-weight:600;color:var(--text);margin-bottom:6px}
+        .form-group label .required{color:#EF4444;margin-left:2px}
+        .form-group input,
+        .form-group select,
+        .form-group textarea{width:100%;padding:12px 14px;border:1px solid var(--border);border-radius:10px;font-size:14px;font-family:'Inter',sans-serif;color:var(--text);transition:border-color .2s,box-shadow .2s;background:var(--white)}
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus{outline:none;border-color:var(--primary);box-shadow:0 0 0 3px rgba(0,69,165,0.1)}
+        .form-group textarea{resize:vertical;min-height:120px}
+        .form-group select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236B7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:38px;cursor:pointer}
+        .char-counter{text-align:right;font-size:12px;color:var(--text-light);margin-top:4px}
+        .submit-btn{width:100%;padding:14px 32px;background:var(--primary);color:#fff;border:none;border-radius:10px;font-size:16px;font-weight:600;font-family:'Inter',sans-serif;cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;justify-content:center;gap:8px;margin-top:6px}
+        .submit-btn:hover{background:var(--primary-dark);transform:translateY(-1px);box-shadow:0 4px 16px rgba(0,69,165,0.3)}
+
+        /* FOOTER */
+        .footer{background:var(--text);color:rgba(255,255,255,0.7);padding:60px 0 0}
+        .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px}
+        .footer-brand .logo{margin-bottom:16px;display:inline-flex}
+        .footer-brand .logo img{height:40px}
+        .footer-brand p{font-size:14px;line-height:1.7;color:rgba(255,255,255,0.6);margin-top:12px}
+        .footer h4{color:#fff;font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;font-weight:700;margin-bottom:18px}
+        .footer-links{list-style:none}
+        .footer-links li{margin-bottom:10px}
+        .footer-links a{color:rgba(255,255,255,0.6);text-decoration:none;font-size:14px;transition:color .2s}
+        .footer-links a:hover{color:#fff}
+        .footer-bottom{border-top:1px solid rgba(255,255,255,0.1);padding:20px 0;text-align:center;font-size:13px;color:rgba(255,255,255,0.4)}
+
+        /* LANGUAGE */
+        .cn{display:none!important}
+        body.cn-mode .en{display:none!important}
+        body.cn-mode span.cn,body.cn-mode a.cn{display:inline!important}
+        body.cn-mode div.cn,body.cn-mode p.cn,body.cn-mode h1.cn,body.cn-mode h2.cn,body.cn-mode h3.cn,body.cn-mode h4.cn,body.cn-mode li.cn{display:block!important}
+
+        /* RESPONSIVE */
+        @media(max-width:968px){
+            .contact-grid{grid-template-columns:1fr}
+            .footer-grid{grid-template-columns:1fr 1fr}
+            .nav-links{display:none}
+            .mobile-menu{display:block}
+            .hero h1{font-size:36px}
+        }
+        @media(max-width:640px){
+            .hero{padding:60px 0 70px}
+            .hero h1{font-size:28px}
+            .form-row{grid-template-columns:1fr}
+            .footer-grid{grid-template-columns:1fr}
+            .contact-info{padding:28px}
+            .contact-form-wrap{padding:28px}
+            .topbar .container{flex-direction:column;gap:4px}
+            .header .container{height:66px}
+            .logo img{height:36px}
+            .cta-btn{display:none}
+        }
+
+        /* MOBILE NAV */
+        .mobile-nav{position:fixed;top:0;right:-100%;width:300px;height:100vh;background:var(--white);z-index:2000;box-shadow:-4px 0 20px rgba(0,0,0,0.1);transition:right .3s;padding:24px}
+        .mobile-nav.open{right:0}
+        .mobile-nav-close{background:none;border:none;font-size:24px;cursor:pointer;float:right;margin-bottom:24px}
+        .mobile-nav ul{list-style:none}
+        .mobile-nav ul li{margin-bottom:8px}
+        .mobile-nav ul a{display:block;padding:12px;color:var(--text);text-decoration:none;font-weight:500;border-radius:8px;transition:background .2s}
+        .mobile-nav ul a:hover{background:var(--primary-light);color:var(--primary)}
+        .mobile-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.4);z-index:1999;display:none}
+        .mobile-overlay.open{display:block}
+    </style>
+</head>
+<body>
+
+    <!-- TOP BAR -->
+    <div class="topbar">
+        <div class="container">
+            <span class="en">One-Stop EV Solutions: Repair | Training | Components</span>
+            <span class="cn">新能源汽车一站式解决方案：维修 | 教学 | 配件</span>
+            <div>
+                <a href="https://wa.me/8613677310469" target="_blank">WhatsApp</a>
+                <a href="https://facebook.com/EVaaptec" target="_blank">Facebook</a>
+                <a href="mailto:sales@aaptec.com.cn">sales@aaptec.com.cn</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- HEADER -->
+    <header class="header" id="header">
+        <div class="container">
+            <a href="index.html" class="logo"><img src="images/logo.png" alt="AAPTEC"></a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="services.html"><span class="en">Service</span><span class="cn">服务</span></a></li>
+                    <li><a href="training.html"><span class="en">Training</span><span class="cn">课程</span></a></li>
+                    <li><a href="products.html"><span class="en">Products</span><span class="cn">产品</span></a></li>
+                    <li><a href="about.html"><span class="en">About Us</span><span class="cn">关于我们</span></a></li>
+                    <li><a href="contact.html"><span class="en">Contact</span><span class="cn">联系我们</span></a></li>
+                </ul>
+            </nav>
+            <div style="display:flex;align-items:center;gap:16px">
+                <button class="lang-toggle" onclick="toggleLang()">
+                    <span class="lang-btn active" id="lang-en">EN</span>
+                    <span class="lang-btn" id="lang-cn">CN</span>
+                </button>
+                <a href="contact.html" class="cta-btn en">Get a Quote</a>
+                <a href="contact.html" class="cta-btn cn">获取报价</a>
+                <button class="mobile-menu" onclick="toggleMobile()"><span></span><span></span><span></span></button>
+            </div>
+        </div>
+    </header>
+
+    <!-- MOBILE NAV -->
+    <div class="mobile-overlay" id="mobileOverlay" onclick="toggleMobile()"></div>
+    <div class="mobile-nav" id="mobileNav">
+        <button class="mobile-nav-close" onclick="toggleMobile()">&times;</button>
+        <ul>
+            <li><a href="services.html" onclick="toggleMobile()"><span class="en">Service</span><span class="cn">服务</span></a></li>
+            <li><a href="training.html" onclick="toggleMobile()"><span class="en">Training</span><span class="cn">课程</span></a></li>
+            <li><a href="products.html" onclick="toggleMobile()"><span class="en">Products</span><span class="cn">产品</span></a></li>
+            <li><a href="about.html" onclick="toggleMobile()"><span class="en">About Us</span><span class="cn">关于我们</span></a></li>
+            <li><a href="contact.html" onclick="toggleMobile()"><span class="en">Contact</span><span class="cn">联系我们</span></a></li>
+        </ul>
+    </div>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="container">
+            <h1 class="en">Contact Us</h1>
+            <h1 class="cn">联系我们</h1>
+            <p class="en">Have questions? Reach out to us and we will get back to you within 24 hours.</p>
+            <p class="cn">有疑问？请联系我们，我们将在24小时内回复您。</p>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section class="section" style="background:var(--bg)">
+        <div class="container">
+            <div class="contact-grid">
+
+                <!-- LEFT: Contact Info -->
+                <div class="contact-info">
+                    <h2 class="en">Get in Touch</h2>
+                    <h2 class="cn">联系我们</h2>
+                    <p class="en">We are here to help with any questions about our EV repair services, training programs, or product inquiries.</p>
+                    <p class="cn">我们随时为您提供新能源维修服务、培训课程或产品咨询方面的帮助。</p>
+
+                    <ul class="info-list">
+                        <li>
+                            <div class="icon-box">✉</div>
+                            <div>
+                                <div class="info-label">Email</div>
+                                <a href="mailto:sales@aaptec.com.cn" class="info-value">sales@aaptec.com.cn</a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="icon-box">💬</div>
+                            <div>
+                                <div class="info-label">WhatsApp</div>
+                                <a href="https://wa.me/8613677310469" target="_blank" class="info-value">+86 136 7731 0469</a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="icon-box">📘</div>
+                            <div>
+                                <div class="info-label">Facebook</div>
+                                <a href="https://facebook.com/EVaaptec" target="_blank" class="info-value">facebook.com/EVaaptec</a>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <div class="social-links">
+                        <a href="https://wa.me/8613677310469" target="_blank" class="social-link" title="WhatsApp">💬</a>
+                        <a href="https://facebook.com/EVaaptec" target="_blank" class="social-link" title="Facebook">📘</a>
+                        <a href="mailto:sales@aaptec.com.cn" class="social-link" title="Email">✉</a>
+                    </div>
+                </div>
+
+                <!-- RIGHT: Contact Form -->
+                <div class="contact-form-wrap">
+                    <h2 class="en">Send Us a Message</h2>
+                    <h2 class="cn">发送消息</h2>
+                    <p class="en">Fill out the form below and we will respond within 24 hours.</p>
+                    <p class="cn">请填写以下表单，我们将在24小时内回复。</p>
+
+                    <form id="contactForm" onsubmit="handleSubmit(event)">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="en">Name <span class="required">*</span></label>
+                                <label class="cn">姓名 <span class="required">*</span></label>
+                                <input type="text" required placeholder="Your full name / 您的姓名">
+                            </div>
+                            <div class="form-group">
+                                <label class="en">Email <span class="required">*</span></label>
+                                <label class="cn">邮箱 <span class="required">*</span></label>
+                                <input type="email" required placeholder="you@example.com">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="en">Country <span class="required">*</span></label>
+                                <label class="cn">国家/地区 <span class="required">*</span></label>
+                                <input type="text" required placeholder="Your country / 您的国家">
+                            </div>
+                            <div class="form-group">
+                                <label>WhatsApp</label>
+                                <input type="tel" placeholder="+1 234 567 890">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Subject</label>
+                            <select required>
+                                <option value="" disabled selected>Select a subject / 选择主题</option>
+                                <option value="ev-repair-training">EV Repair Training</option>
+                                <option value="technician-dispatch">Technician Talent Dispatch</option>
+                                <option value="business-transformation">Business Transformation</option>
+                                <option value="online-courses">Online Courses</option>
+                                <option value="equipment-inquiry">Equipment Inquiry</option>
+                                <option value="repair-materials">Repair Materials</option>
+                                <option value="component-procurement">Component Procurement</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="en">Inquiry <span class="required">*</span></label>
+                            <label class="cn">咨询内容 <span class="required">*</span></label>
+                            <textarea required maxlength="250" id="inquiryText" oninput="updateCounter()" placeholder="Tell us about your inquiry (max 250 characters)"></textarea>
+                            <div class="char-counter"><span id="charCount">0</span>/250</div>
+                        </div>
+                        <button type="submit" class="submit-btn">
+                            <span class="en">Send Message</span>
+                            <span class="cn">发送消息</span> →
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo"><img src="images/logo.png" alt="AAPTEC"></a>
+                    <p class="en">One-stop solutions for new energy vehicle repair, professional training, and high-quality EV components.</p>
+                    <p class="cn">新能源汽车维修、专业培训和高品质配件的一站式解决方案。</p>
+                </div>
+                <div>
+                    <h4 class="en">Services</h4><h4 class="cn">服务</h4>
+                    <ul class="footer-links">
+                        <li><a href="training.html" class="en">EV Repair Training</a><a href="training.html" class="cn">维修培训</a></li>
+                        <li><a href="services.html" class="en">Talent Dispatch</a><a href="services.html" class="cn">人才输送</a></li>
+                        <li><a href="services.html" class="en">Business Solutions</a><a href="services.html" class="cn">创业转型</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="en">Products</h4><h4 class="cn">产品</h4>
+                    <ul class="footer-links">
+                        <li><a href="products.html" class="en">Online Courses</a><a href="products.html" class="cn">线上课程</a></li>
+                        <li><a href="products.html" class="en">Equipment</a><a href="products.html" class="cn">教学设备</a></li>
+                        <li><a href="products.html" class="en">Materials</a><a href="products.html" class="cn">维修资料</a></li>
+                        <li><a href="products.html" class="en">Components</a><a href="products.html" class="cn">配件代采</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="en">Contact</h4><h4 class="cn">联系方式</h4>
+                    <ul class="footer-links">
+                        <li><a href="mailto:sales@aaptec.com.cn">sales@aaptec.com.cn</a></li>
+                        <li><a href="https://wa.me/8613677310469" target="_blank">WhatsApp: +86 136 7731 0469</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span class="en">&copy; 2026 AAPTEC. All rights reserved.</span>
+                <span class="cn">&copy; 2026 AAPTEC 版权所有</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let isCn=false;
+        function toggleLang(){isCn=!isCn;document.body.classList.toggle('cn-mode',isCn);document.getElementById('lang-en').classList.toggle('active',!isCn);document.getElementById('lang-cn').classList.toggle('active',isCn);document.documentElement.lang=isCn?'zh-CN':'en'}
+        window.addEventListener('scroll',()=>{document.getElementById('header').classList.toggle('scrolled',window.scrollY>20)});
+        function toggleMobile(){document.getElementById('mobileNav').classList.toggle('open');document.getElementById('mobileOverlay').classList.toggle('open')}
+        function updateCounter(){const t=document.getElementById('inquiryText');document.getElementById('charCount').textContent=t.value.length}
+        function handleSubmit(e){e.preventDefault();alert('Thank you! We will get back to you within 24 hours.');e.target.reset();document.getElementById('charCount').textContent='0'}
+    </script>
+</body>
+</html>

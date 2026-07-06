@@ -27,24 +27,24 @@
         html{scroll-behavior:smooth;scroll-padding-top:92px}
         body{font-family:'Inter',sans-serif;color:var(--text);line-height:1.6;overflow-x:hidden}
 
-        /* ===== TOP BAR ===== */
+        /* TOP BAR */
         .topbar{background:var(--primary-dark);color:rgba(255,255,255,0.9);font-size:13px;padding:8px 0}
         .topbar .container{display:flex;justify-content:space-between;align-items:center}
         .topbar a{color:rgba(255,255,255,0.9);text-decoration:none;margin-left:16px;transition:color .2s}
         .topbar a:hover{color:#fff}
 
-        /* ===== HEADER ===== */
+        /* HEADER */
         .header{background:rgba(255,255,255,0.96);backdrop-filter:blur(18px);box-shadow:0 1px 3px rgba(0,0,0,0.08);position:sticky;top:0;z-index:1000;transition:box-shadow .3s}
         .header.scrolled{box-shadow:0 4px 20px rgba(0,0,0,0.12)}
-        .header .container{display:flex;justify-content:space-between;align-items:center;height:72px}
+        .header .container{display:flex;justify-content:space-between;align-items:center;height:80px}
         .logo{text-decoration:none;display:flex;align-items:center}
-        .logo img{height:40px;width:auto}
+        .logo img{height:48px;width:auto}
         .nav-links{display:flex;align-items:center;gap:32px;list-style:none}
         .nav-links a{text-decoration:none;color:var(--text);font-weight:500;font-size:15px;transition:color .2s;position:relative}
         .nav-links a:hover{color:var(--primary)}
         .nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--primary);transition:width .3s}
         .nav-links a:hover::after{width:100%}
-        .lang-toggle{display:flex;align-items:center;gap:0;background:var(--primary-light);border-radius:20px;padding:3px;cursor:pointer;border:none}
+        .lang-toggle{display:flex;align-items:center;background:var(--primary-light);border-radius:20px;padding:3px;cursor:pointer;border:none}
         .lang-btn{padding:5px 14px;border-radius:18px;font-size:13px;font-weight:600;border:none;cursor:pointer;transition:all .2s;font-family:'Inter',sans-serif}
         .lang-btn.active{background:var(--primary);color:#fff}
         .lang-btn:not(.active){background:transparent;color:var(--primary)}
@@ -53,214 +53,122 @@
         .mobile-menu{display:none;background:none;border:none;cursor:pointer;padding:8px}
         .mobile-menu span{display:block;width:24px;height:2px;background:var(--text);margin:5px 0;transition:all .3s}
 
-        /* ===== CONTAINER ===== */
         .container{max-width:1200px;margin:0 auto;padding:0 24px}
 
-        /* ===== HERO ===== */
-        .hero{background:radial-gradient(circle at 80% 20%,rgba(0,163,255,.36),transparent 34%),linear-gradient(135deg,var(--primary-deep) 0%,var(--primary-dark) 45%,var(--primary) 100%);color:#fff;padding:64px 0 70px;position:relative;overflow:hidden}
-        .hero::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px);background-size:52px 52px;mask-image:linear-gradient(90deg,#000,transparent 78%);opacity:.65}
+        /* HERO - BIG LOGO VERSION */
+        .hero{background:radial-gradient(circle at 80% 20%,rgba(0,163,255,.36),transparent 34%),linear-gradient(135deg,var(--primary-deep) 0%,var(--primary-dark) 45%,var(--primary) 100%);color:#fff;padding:80px 0 90px;position:relative;overflow:hidden;text-align:center}
+        .hero::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px);background-size:52px 52px;opacity:.65}
         .hero::after{content:'';position:absolute;right:4%;bottom:-70px;width:42%;height:170px;background:rgba(0,163,255,.18);filter:blur(70px)}
         .hero .container{position:relative;z-index:1}
-        .hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
-        .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.24);padding:7px 16px;border-radius:999px;font-size:13px;font-weight:600;margin-bottom:22px;backdrop-filter:blur(10px)}
-        .hero h1{font-family:'Plus Jakarta Sans',sans-serif;font-size:50px;font-weight:800;line-height:1.05;margin-bottom:20px;letter-spacing:0}
+        .hero-logo{margin-bottom:30px}
+        .hero-logo img{height:90px;width:auto;filter:drop-shadow(0 8px 30px rgba(0,0,0,0.3))}
+        .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.24);padding:8px 20px;border-radius:999px;font-size:14px;font-weight:600;margin-bottom:24px;backdrop-filter:blur(10px)}
+        .hero h1{font-family:'Plus Jakarta Sans',sans-serif;font-size:48px;font-weight:800;line-height:1.1;margin-bottom:20px}
         .hero h1 span{color:#A7D6FF}
-        .hero p{font-size:17px;line-height:1.65;color:rgba(255,255,255,0.85);margin-bottom:28px;max-width:520px}
-        .hero-buttons{display:flex;gap:14px;flex-wrap:wrap}
-        .btn-white{background:#fff;color:var(--primary);padding:14px 28px;border-radius:10px;text-decoration:none;font-weight:600;font-size:15px;transition:all .2s;display:inline-flex;align-items:center;gap:8px}
+        .hero p{font-size:18px;line-height:1.7;color:rgba(255,255,255,0.85);margin:0 auto 32px;max-width:680px}
+        .hero-buttons{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:40px}
+        .btn-white{background:#fff;color:var(--primary);padding:14px 32px;border-radius:10px;text-decoration:none;font-weight:600;font-size:16px;transition:all .2s;display:inline-flex;align-items:center;gap:8px}
         .btn-white:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,0.15)}
-        .btn-outline{background:transparent;color:#fff;border:2px solid rgba(255,255,255,0.4);padding:12px 28px;border-radius:10px;text-decoration:none;font-weight:600;font-size:15px;transition:all .2s;display:inline-flex;align-items:center;gap:8px}
+        .btn-outline{background:transparent;color:#fff;border:2px solid rgba(255,255,255,0.4);padding:12px 32px;border-radius:10px;text-decoration:none;font-weight:600;font-size:16px;transition:all .2s;display:inline-flex;align-items:center;gap:8px}
         .btn-outline:hover{background:rgba(255,255,255,0.1);border-color:#fff}
-        .hero-image{position:relative}
-        .hero-image::before{content:'Diagnostics + Training Lab';position:absolute;left:-18px;bottom:24px;z-index:2;background:rgba(7,25,47,.92);border:1px solid rgba(255,255,255,.18);color:#fff;border-radius:10px;padding:12px 16px;font-size:13px;font-weight:700;box-shadow:0 18px 36px rgba(0,0,0,.22)}
-        .hero-image img{width:100%;border-radius:14px;box-shadow:0 24px 70px rgba(0,0,0,0.35);border:1px solid rgba(255,255,255,.20)}
-        .hero-stats{display:flex;gap:16px;margin-top:26px;flex-wrap:wrap}
-        .stat-item{text-align:left;min-width:120px;padding:14px 18px;border:1px solid rgba(255,255,255,.16);border-radius:12px;background:rgba(255,255,255,.08);backdrop-filter:blur(10px)}
-        .stat-number{font-family:'Plus Jakarta Sans',sans-serif;font-size:32px;font-weight:800;color:#fff}
-        .stat-label{font-size:13px;color:rgba(255,255,255,0.7);margin-top:4px}
+        .hero-stats{display:flex;gap:20px;justify-content:center;flex-wrap:wrap}
+        .stat-item{text-align:center;padding:18px 28px;border:1px solid rgba(255,255,255,.16);border-radius:14px;background:rgba(255,255,255,.08);backdrop-filter:blur(10px);min-width:140px}
+        .stat-number{font-family:'Plus Jakarta Sans',sans-serif;font-size:36px;font-weight:800;color:#fff}
+        .stat-label{font-size:14px;color:rgba(255,255,255,0.7);margin-top:4px}
 
-        /* ===== SECTIONS ===== */
-        .section{padding:78px 0}
+        /* SECTIONS */
+        .section{padding:80px 0}
         .section-header{text-align:center;margin-bottom:50px}
         .section-tag{display:inline-block;background:var(--primary-light);color:var(--primary);padding:6px 16px;border-radius:20px;font-size:13px;font-weight:600;margin-bottom:14px;text-transform:uppercase;letter-spacing:0.5px}
         .section-header h2{font-family:'Plus Jakarta Sans',sans-serif;font-size:36px;font-weight:700;color:var(--text);margin-bottom:14px}
         .section-header p{font-size:17px;color:var(--text-light);max-width:600px;margin:0 auto}
 
-        /* ===== SERVICE CARDS ===== */
-        .service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-        .service-card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:30px;text-align:left;transition:all .3s;position:relative;overflow:hidden;min-height:284px}
-        .service-card:hover{transform:translateY(-5px);box-shadow:var(--shadow);border-color:rgba(0,69,165,.35)}
+        /* SERVICE CARDS - CLICKABLE */
+        .service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+        .service-card{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:36px 28px;text-align:center;transition:all .3s;position:relative;overflow:hidden;text-decoration:none;color:var(--text);display:block}
+        .service-card:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:rgba(0,69,165,.35)}
         .service-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--primary),var(--accent))}
-        .service-icon{width:54px;height:54px;background:var(--primary-deep);border-radius:10px;display:flex;align-items:center;justify-content:center;margin:0 0 22px;font-size:0;transition:all .3s;color:#fff}
-        .service-icon::after{font-size:13px;font-weight:800;letter-spacing:.08em}
-        .service-card:nth-child(1) .service-icon::after{content:'CRS'}
-        .service-card:nth-child(2) .service-icon::after{content:'DSP'}
-        .service-card:nth-child(3) .service-icon::after{content:'SOL'}
-        .service-card:hover .service-icon{background:var(--primary);transform:translateY(-2px)}
-        .service-card h3{font-family:'Plus Jakarta Sans',sans-serif;font-size:20px;font-weight:700;margin-bottom:12px;color:var(--text)}
-        .service-card p{font-size:15px;color:var(--text-light);line-height:1.72}
-        .service-meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:22px}
-        .service-meta span{font-size:12px;font-weight:700;color:var(--primary);background:var(--primary-light);padding:6px 10px;border-radius:999px}
-        .service-note{font-size:12px;color:var(--text-light);font-style:italic;margin-top:8px}
+        .service-icon{width:64px;height:64px;background:var(--primary-deep);border-radius:14px;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:28px;transition:all .3s;color:#fff}
+        .service-card:hover .service-icon{background:var(--primary);transform:translateY(-3px)}
+        .service-card h3{font-family:'Plus Jakarta Sans',sans-serif;font-size:20px;font-weight:700;margin-bottom:10px}
+        .service-card p{font-size:14px;color:var(--text-light);line-height:1.7;margin-bottom:16px}
+        .service-card .arrow{color:var(--primary);font-weight:600;font-size:14px;display:inline-flex;align-items:center;gap:4px;transition:gap .3s}
+        .service-card:hover .arrow{gap:10px}
 
-        /* ===== COURSE CARDS ===== */
-        .course-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-        .course-card{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:28px 22px;text-align:center;transition:all .3s;cursor:pointer;position:relative;overflow:hidden}
-        .course-card:hover{transform:translateY(-5px);box-shadow:var(--shadow);border-color:var(--primary)}
-        .course-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--primary),var(--accent));opacity:0;transition:opacity .3s}
-        .course-card:hover::before{opacity:1}
-        .course-level{display:inline-block;background:var(--primary);color:#fff;padding:4px 12px;border-radius:999px;font-size:11px;font-weight:700;margin-bottom:14px;text-transform:uppercase;letter-spacing:.5px}
-        .course-card:nth-child(1) .course-level{background:var(--success)}
-        .course-card:nth-child(2) .course-level{background:var(--accent)}
-        .course-card:nth-child(3) .course-level{background:var(--primary-deep)}
-        .course-card:nth-child(4) .course-level{background:var(--gold)}
-        .course-icon{width:60px;height:60px;margin:0 auto 16px;background:var(--primary-light);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px}
-        .course-card h3{font-family:'Plus Jakarta Sans',sans-serif;font-size:17px;font-weight:700;margin-bottom:8px;color:var(--text)}
-        .course-card p{font-size:13px;color:var(--text-light);line-height:1.6;margin-bottom:16px}
-        .course-link{color:var(--primary);font-weight:600;font-size:13px;display:inline-flex;align-items:center;gap:4px}
-        .course-card:hover .course-link{gap:8px}
-
-        /* ===== PRODUCT CARDS ===== */
+        /* PRODUCT CARDS */
         .product-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-        .product-card{background:var(--white);border:1px solid var(--border);border-radius:12px;overflow:hidden;transition:all .3s;cursor:pointer}
+        .product-card{background:var(--white);border:1px solid var(--border);border-radius:12px;overflow:hidden;transition:all .3s;cursor:pointer;text-decoration:none;color:var(--text);display:block}
         .product-card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
-        .product-visual{height:160px;display:flex;align-items:center;justify-content:center;font-size:48px;position:relative;overflow:hidden}
+        .product-visual{height:140px;display:flex;align-items:center;justify-content:center;font-size:42px}
         .product-card:nth-child(1) .product-visual{background:linear-gradient(135deg,#07192F,#0045A5)}
         .product-card:nth-child(2) .product-visual{background:linear-gradient(135deg,#003580,#00A3FF)}
         .product-card:nth-child(3) .product-visual{background:linear-gradient(135deg,#1a1a2e,#16213e)}
         .product-card:nth-child(4) .product-visual{background:linear-gradient(135deg,#0045A5,#059669)}
-        .product-visual-icon{font-size:48px;filter:drop-shadow(0 4px 8px rgba(0,0,0,0.2))}
-        .product-content{padding:22px}
-        .product-content h3{font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;font-weight:700;margin-bottom:8px}
-        .product-content p{font-size:13px;color:var(--text-light);line-height:1.6;margin-bottom:14px}
+        .product-content{padding:20px}
+        .product-content h3{font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;font-weight:700;margin-bottom:6px}
+        .product-content p{font-size:13px;color:var(--text-light);line-height:1.6}
 
-        /* ===== TESTIMONIALS ===== */
+        /* TESTIMONIALS */
         .testimonial-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-        .testimonial-card{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:28px;transition:all .3s;position:relative}
+        .testimonial-card{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:26px;transition:all .3s}
         .testimonial-card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
         .testimonial-stars{color:var(--gold);font-size:16px;margin-bottom:12px;letter-spacing:2px}
-        .testimonial-text{font-size:14px;color:var(--text-light);line-height:1.75;margin-bottom:18px;font-style:italic}
-        .testimonial-author{display:flex;align-items:center;gap:12px;border-top:1px solid var(--border);padding-top:16px}
-        .testimonial-avatar{width:44px;height:44px;border-radius:50%;background:var(--primary-light);display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--primary);font-size:16px;flex-shrink:0}
-        .testimonial-name{font-weight:600;font-size:14px;color:var(--text)}
+        .testimonial-text{font-size:14px;color:var(--text-light);line-height:1.75;margin-bottom:16px;font-style:italic}
+        .testimonial-author{display:flex;align-items:center;gap:12px;border-top:1px solid var(--border);padding-top:14px}
+        .testimonial-avatar{width:42px;height:42px;border-radius:50%;background:var(--primary-light);display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--primary);font-size:15px;flex-shrink:0}
+        .testimonial-name{font-weight:600;font-size:14px}
         .testimonial-meta{font-size:12px;color:var(--text-light);margin-top:2px}
-        .testimonial-flag{font-size:14px;margin-right:4px}
 
-        /* ===== ABOUT ===== */
-        .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
-        .about-content h2{font-family:'Plus Jakarta Sans',sans-serif;font-size:36px;font-weight:700;margin-bottom:20px}
-        .about-content p{font-size:16px;color:var(--text-light);line-height:1.8;margin-bottom:16px}
-        .about-features{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px}
-        .about-feature{display:flex;align-items:flex-start;gap:12px;padding:14px;background:var(--primary-light);border-radius:10px}
-        .about-feature .icon{width:36px;height:36px;background:var(--primary);color:#fff;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px}
-        .about-feature .text{font-size:14px;font-weight:500;line-height:1.5}
-        .about-images{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-        .about-img-placeholder{width:100%;border-radius:12px;object-fit:cover;height:200px;display:flex;align-items:center;justify-content:center;font-size:14px;color:#fff;font-weight:600}
-        .about-img-placeholder:first-child{grid-column:span 2;height:280px}
-        .about-img-placeholder:nth-child(1){background:linear-gradient(135deg,#07192F,#0045A5)}
-        .about-img-placeholder:nth-child(2){background:linear-gradient(135deg,#003580,#00A3FF)}
-        .about-img-placeholder:nth-child(3){background:linear-gradient(135deg,#1a1a2e,#16213e)}
-
-        /* ===== CONTACT ===== */
-        .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px}
-        .contact-info h3{font-family:'Plus Jakarta Sans',sans-serif;font-size:22px;font-weight:700;margin-bottom:24px}
-        .contact-item{display:flex;align-items:flex-start;gap:14px;margin-bottom:24px}
-        .contact-item .icon{width:44px;height:44px;background:var(--primary-light);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:18px;color:var(--primary)}
-        .contact-item .label{font-size:13px;color:var(--text-light);margin-bottom:2px}
-        .contact-item .value{font-weight:600;font-size:15px}
-        .contact-form{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:36px;box-shadow:var(--shadow)}
-        .contact-form h3{font-family:'Plus Jakarta Sans',sans-serif;font-size:22px;font-weight:700;margin-bottom:24px}
-        .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
-        .form-group{margin-bottom:16px}
-        .form-group label{display:block;font-size:13px;font-weight:600;margin-bottom:6px;color:var(--text)}
-        .form-group input,.form-group select,.form-group textarea{width:100%;padding:12px 16px;border:1px solid var(--border);border-radius:10px;font-size:14px;font-family:'Inter',sans-serif;transition:border-color .2s;outline:none;background:var(--bg)}
-        .form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(0,69,165,0.1)}
-        .form-group textarea{min-height:120px;resize:vertical}
-        .form-submit{width:100%;padding:14px;background:var(--primary);color:#fff;border:none;border-radius:10px;font-size:15px;font-weight:600;cursor:pointer;transition:all .2s;font-family:'Inter',sans-serif}
-        .form-submit:hover{background:var(--primary-dark);transform:translateY(-1px);box-shadow:0 4px 12px rgba(0,69,165,0.3)}
-        .char-count{font-size:12px;color:var(--text-light);text-align:right;margin-top:4px}
-
-        /* ===== CTA BANNER ===== */
+        /* CTA */
         .cta-banner{background:linear-gradient(135deg,var(--primary-dark),var(--primary));padding:60px 0;text-align:center;color:#fff}
         .cta-banner h2{font-family:'Plus Jakarta Sans',sans-serif;font-size:32px;font-weight:700;margin-bottom:14px}
         .cta-banner p{font-size:17px;color:rgba(255,255,255,0.85);margin-bottom:28px}
 
-        /* ===== FOOTER ===== */
+        /* FOOTER */
         .footer{background:var(--text);color:rgba(255,255,255,0.7);padding:60px 0 0}
         .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px}
-        .footer-brand .logo{color:#fff;margin-bottom:16px;display:inline-flex}
-        .footer-brand .logo-icon{background:rgba(255,255,255,0.15)}
+        .footer-brand .logo{margin-bottom:16px;display:inline-flex}
+        .footer-brand .logo img{height:40px}
         .footer-brand p{font-size:14px;line-height:1.7;color:rgba(255,255,255,0.6);margin-top:12px}
         .footer h4{color:#fff;font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;font-weight:700;margin-bottom:18px}
         .footer-links{list-style:none}
         .footer-links li{margin-bottom:10px}
         .footer-links a{color:rgba(255,255,255,0.6);text-decoration:none;font-size:14px;transition:color .2s}
         .footer-links a:hover{color:#fff}
-        .footer-social{display:flex;gap:12px;margin-top:18px}
-        .footer-social a{width:40px;height:40px;border-radius:10px;background:rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.7);text-decoration:none;font-size:16px;transition:all .2s}
-        .footer-social a:hover{background:var(--primary);color:#fff}
         .footer-bottom{border-top:1px solid rgba(255,255,255,0.1);padding:20px 0;text-align:center;font-size:13px;color:rgba(255,255,255,0.4)}
 
-        /* ===== MODAL ===== */
-        .modal-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:3000;display:none;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px)}
-        .modal-overlay.open{display:flex}
-        .modal{background:var(--white);border-radius:16px;width:100%;max-width:520px;max-height:90vh;overflow-y:auto;position:relative;box-shadow:0 24px 80px rgba(0,0,0,0.25)}
-        .modal-header{padding:28px 28px 0;display:flex;justify-content:space-between;align-items:flex-start}
-        .modal-header h3{font-family:'Plus Jakarta Sans',sans-serif;font-size:22px;font-weight:700;color:var(--text)}
-        .modal-header p{font-size:14px;color:var(--text-light);margin-top:4px}
-        .modal-close{background:var(--bg);border:none;width:36px;height:36px;border-radius:50%;cursor:pointer;font-size:20px;display:flex;align-items:center;justify-content:center;color:var(--text-light);transition:all .2s;flex-shrink:0}
-        .modal-close:hover{background:var(--border);color:var(--text)}
-        .modal-body{padding:24px 28px 28px}
-        .modal-body .form-group{margin-bottom:14px}
-        .modal-body .form-row{gap:12px;margin-bottom:14px}
-
-        /* ===== LANGUAGE TOGGLE ===== */
+        /* LANGUAGE */
         .cn{display:none!important}
         body.cn-mode .en{display:none!important}
         body.cn-mode span.cn,body.cn-mode a.cn{display:inline!important}
-        body.cn-mode div.cn,body.cn-mode p.cn,body.cn-mode h1.cn,body.cn-mode h2.cn,body.cn-mode h3.cn,body.cn-mode h4.cn,body.cn-mode label.cn{display:block!important}
-        body.cn-mode .course-card p,body.cn-mode .product-card p,body.cn-mode .testimonial-text,body.cn-mode .service-card p,body.cn-mode .about-content p,body.cn-mode .footer-brand p{display:block!important}
+        body.cn-mode div.cn,body.cn-mode p.cn,body.cn-mode h1.cn,body.cn-mode h2.cn,body.cn-mode h3.cn,body.cn-mode h4.cn{display:block!important}
 
-        /* ===== ANIMATIONS ===== */
+        /* ANIMATIONS */
         .fade-up{opacity:1;transform:none;transition:opacity .45s,transform .45s}
 
-        /* ===== RESPONSIVE ===== */
+        /* RESPONSIVE */
         @media(max-width:968px){
-            .hero-grid{grid-template-columns:1fr;text-align:center}
-            .hero p{margin:0 auto 32px}
-            .hero-buttons{justify-content:center}
-            .hero-image{display:none}
-            .hero-stats{justify-content:center}
-            .service-grid{grid-template-columns:1fr 1fr}
-            .course-grid{grid-template-columns:1fr 1fr}
-            .product-grid{grid-template-columns:1fr 1fr}
-            .testimonial-grid{grid-template-columns:1fr 1fr}
-            .about-grid,.contact-grid{grid-template-columns:1fr}
+            .service-grid,.product-grid,.testimonial-grid{grid-template-columns:1fr 1fr}
             .footer-grid{grid-template-columns:1fr 1fr}
             .nav-links{display:none}
             .mobile-menu{display:block}
+            .hero h1{font-size:36px}
         }
         @media(max-width:640px){
             .hero{padding:60px 0 70px}
-            .hero h1{font-size:32px}
-            .topbar .container{gap:8px;align-items:flex-start;flex-direction:column}
-            .header .container{height:66px}
-            .logo{font-size:22px}
-            .cta-btn{display:none}
-            .hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
-            .stat-item{min-width:0;padding:12px 10px;text-align:center}
-            .stat-number{font-size:24px}
-            .section-header h2{font-size:28px}
-            .service-grid,.course-grid,.product-grid,.testimonial-grid{grid-template-columns:1fr}
-            .form-row{grid-template-columns:1fr}
+            .hero h1{font-size:28px}
+            .hero-logo img{height:60px}
+            .stat-number{font-size:28px}
+            .service-grid,.product-grid,.testimonial-grid{grid-template-columns:1fr}
             .footer-grid{grid-template-columns:1fr}
-            .about-features{grid-template-columns:1fr}
-            .modal{margin:10px;max-height:95vh}
-            .modal-header{padding:20px 20px 0}
-            .modal-body{padding:20px}
+            .topbar .container{flex-direction:column;gap:4px}
+            .header .container{height:66px}
+            .logo img{height:36px}
+            .cta-btn{display:none}
+            .stat-item{min-width:0}
         }
 
-        /* ===== MOBILE NAV ===== */
+        /* MOBILE NAV */
         .mobile-nav{position:fixed;top:0;right:-100%;width:300px;height:100vh;background:var(--white);z-index:2000;box-shadow:-4px 0 20px rgba(0,0,0,0.1);transition:right .3s;padding:24px}
         .mobile-nav.open{right:0}
         .mobile-nav-close{background:none;border:none;font-size:24px;cursor:pointer;float:right;margin-bottom:24px}
@@ -274,7 +182,7 @@
 </head>
 <body>
 
-    <!-- ===== TOP BAR ===== -->
+    <!-- TOP BAR -->
     <div class="topbar">
         <div class="container">
             <span class="en">One-Stop EV Solutions: Repair | Training | Components</span>
@@ -287,19 +195,17 @@
         </div>
     </div>
 
-    <!-- ===== HEADER ===== -->
+    <!-- HEADER -->
     <header class="header" id="header">
         <div class="container">
-            <a href="#" class="logo">
-                <img src="images/logo.png" alt="AAPTEC">
-            </a>
+            <a href="index.html" class="logo"><img src="images/logo-header.png" alt="AAPTEC"></a>
             <nav>
                 <ul class="nav-links">
-                    <li><a href="#services"><span class="en">Service</span><span class="cn">服务</span></a></li>
-                    <li><a href="#courses"><span class="en">Training</span><span class="cn">课程</span></a></li>
-                    <li><a href="#products"><span class="en">Products</span><span class="cn">产品</span></a></li>
-                    <li><a href="#about"><span class="en">About Us</span><span class="cn">关于我们</span></a></li>
-                    <li><a href="#contact"><span class="en">Contact</span><span class="cn">联系我们</span></a></li>
+                    <li><a href="services.html"><span class="en">Service</span><span class="cn">服务</span></a></li>
+                    <li><a href="training.html"><span class="en">Training</span><span class="cn">课程</span></a></li>
+                    <li><a href="products.html"><span class="en">Products</span><span class="cn">产品</span></a></li>
+                    <li><a href="about.html"><span class="en">About Us</span><span class="cn">关于我们</span></a></li>
+                    <li><a href="contact.html"><span class="en">Contact</span><span class="cn">联系我们</span></a></li>
                 </ul>
             </nav>
             <div style="display:flex;align-items:center;gap:16px">
@@ -307,69 +213,63 @@
                     <span class="lang-btn active" id="lang-en">EN</span>
                     <span class="lang-btn" id="lang-cn">CN</span>
                 </button>
-                <a href="#contact" class="cta-btn en">Get a Quote</a>
-                <a href="#contact" class="cta-btn cn">获取报价</a>
-                <button class="mobile-menu" onclick="toggleMobile()">
-                    <span></span><span></span><span></span>
-                </button>
+                <a href="contact.html" class="cta-btn en">Get a Quote</a>
+                <a href="contact.html" class="cta-btn cn">获取报价</a>
+                <button class="mobile-menu" onclick="toggleMobile()"><span></span><span></span><span></span></button>
             </div>
         </div>
     </header>
 
-    <!-- ===== MOBILE NAV ===== -->
+    <!-- MOBILE NAV -->
     <div class="mobile-overlay" id="mobileOverlay" onclick="toggleMobile()"></div>
     <div class="mobile-nav" id="mobileNav">
         <button class="mobile-nav-close" onclick="toggleMobile()">&times;</button>
         <ul>
-            <li><a href="#services" onclick="toggleMobile()"><span class="en">Service</span><span class="cn">服务</span></a></li>
-            <li><a href="#courses" onclick="toggleMobile()"><span class="en">Training</span><span class="cn">课程</span></a></li>
-            <li><a href="#products" onclick="toggleMobile()"><span class="en">Products</span><span class="cn">产品</span></a></li>
-            <li><a href="#about" onclick="toggleMobile()"><span class="en">About Us</span><span class="cn">关于我们</span></a></li>
-            <li><a href="#contact" onclick="toggleMobile()"><span class="en">Contact</span><span class="cn">联系我们</span></a></li>
+            <li><a href="services.html" onclick="toggleMobile()"><span class="en">Service</span><span class="cn">服务</span></a></li>
+            <li><a href="training.html" onclick="toggleMobile()"><span class="en">Training</span><span class="cn">课程</span></a></li>
+            <li><a href="products.html" onclick="toggleMobile()"><span class="en">Products</span><span class="cn">产品</span></a></li>
+            <li><a href="about.html" onclick="toggleMobile()"><span class="en">About Us</span><span class="cn">关于我们</span></a></li>
+            <li><a href="contact.html" onclick="toggleMobile()"><span class="en">Contact</span><span class="cn">联系我们</span></a></li>
         </ul>
     </div>
 
-    <!-- ===== HERO ===== -->
+    <!-- HERO - BIG LOGO -->
     <section class="hero">
         <div class="container">
-            <div class="hero-grid">
-                <div>
-                    <div class="hero-badge en">New Energy Vehicle Specialist</div>
-                    <div class="hero-badge cn">新能源汽车专业服务</div>
-                    <h1 class="en">EV Repair, Training<br>& Components<br><span>All in One Place</span></h1>
-                    <h1 class="cn">新能源汽车维修、教学<br>& 配件<br><span>一站式解决方案</span></h1>
-                    <p class="en">Professional EV repair services, customized training courses, and high-quality components — powered by our in-house R&D team with fast response across the globe.</p>
-                    <p class="cn">专业新能源汽车维修服务、定制化培训课程和高品质配件——由自有研发团队驱动，全球快速响应。</p>
-                    <div class="hero-buttons">
-                        <a href="#services" class="btn-white"><span class="en">Explore Services</span><span class="cn">了解服务</span> →</a>
-                        <a href="#contact" class="btn-outline"><span class="en">Contact Us</span><span class="cn">联系我们</span></a>
-                    </div>
-                    <div class="hero-stats">
-                        <div class="stat-item">
-                            <div class="stat-number">100+</div>
-                            <div class="stat-label en">Global Clients</div>
-                            <div class="stat-label cn">全球客户</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number">50+</div>
-                            <div class="stat-label en">Car Brands</div>
-                            <div class="stat-label cn">支持品牌</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number">24h</div>
-                            <div class="stat-label en">Fast Response</div>
-                            <div class="stat-label cn">快速响应</div>
-                        </div>
-                    </div>
+            <div class="hero-logo">
+                <img src="images/logo-hero.png" alt="AAPTEC" style="height:140px">
+            </div>
+            <div class="hero-badge en">New Energy Vehicle Specialist</div>
+            <div class="hero-badge cn">新能源汽车专业服务</div>
+            <h1 class="en">EV Repair, Training<br>& Components — <span>All in One Place</span></h1>
+            <h1 class="cn">新能源汽车维修、教学<br>& 配件 — <span>一站式解决方案</span></h1>
+            <p class="en">Professional EV repair services, customized training courses, and high-quality components — powered by our OEM-level R&D team.</p>
+            <p class="cn">专业新能源汽车维修服务、定制化培训课程和高品质配件——由原厂研发级技术团队驱动。</p>
+            <div class="hero-buttons">
+                <a href="services.html" class="btn-white"><span class="en">Explore Services</span><span class="cn">了解服务</span> →</a>
+                <a href="contact.html" class="btn-outline"><span class="en">Contact Us</span><span class="cn">联系我们</span></a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-number">100+</div>
+                    <div class="stat-label en">Global Clients</div>
+                    <div class="stat-label cn">全球客户</div>
                 </div>
-                <div class="hero-image">
-                    <img src="images/EV_Experience_Center_02_16_9.jpg" alt="EV Workshop">
+                <div class="stat-item">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label en">Car Brands</div>
+                    <div class="stat-label cn">支持品牌</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">24h</div>
+                    <div class="stat-label en">Fast Response</div>
+                    <div class="stat-label cn">快速响应</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ===== SERVICES ===== -->
+    <!-- SERVICES -->
     <section class="section" id="services" style="background:var(--bg)">
         <div class="container">
             <div class="section-header fade-up">
@@ -377,179 +277,94 @@
                 <div class="section-tag cn">我们的服务</div>
                 <h2 class="en">Professional EV Services</h2>
                 <h2 class="cn">专业新能源服务</h2>
-                <p class="en">Comprehensive solutions from repair training to talent dispatch and business transformation — all backed by OEM-level R&D expertise.</p>
-                <p class="cn">从维修培训到人才输送和创业转型的全方位解决方案——全部由原厂研发级技术实力支撑。</p>
+                <p class="en">Comprehensive solutions from repair training to talent dispatch and business transformation.</p>
+                <p class="cn">从维修培训到人才输送和创业转型的全方位解决方案。</p>
             </div>
             <div class="service-grid">
-                <!-- Service 1 -->
-                <div class="service-card fade-up">
-                    <div class="service-icon"></div>
-                    <h3 class="en">EV Repair Training <span style="font-size:13px;font-weight:500;color:var(--text-light)">(Chinese Only, English Instruction)</span></h3>
-                    <h3 class="cn">新能源车修理课程（仅中文，英文授课）</h3>
-                    <p class="en">Structured EV repair courses from beginner to master level. All instruction delivered in English by OEM-experienced engineers, covering battery, motor, and electronic control systems.</p>
-                    <p class="cn">从零基础到大师级的系统化新能源汽车维修课程。全部由具备主机厂经验的工程师以英文授课，涵盖电池、电机、电控三电系统。</p>
-                    <div class="service-meta">
-                        <span class="en">Beginner to Master</span><span class="cn">入门到大师</span>
-                        <span class="en">English Instruction</span><span class="cn">英文授课</span>
-                    </div>
-                </div>
-                <!-- Service 2 -->
-                <div class="service-card fade-up">
-                    <div class="service-icon"></div>
+                <a href="training.html" class="service-card fade-up">
+                    <div class="service-icon">🔧</div>
+                    <h3 class="en">EV Repair Training</h3>
+                    <h3 class="cn">新能源车修理课程</h3>
+                    <p class="en">Structured EV repair courses from beginner to master level, delivered in English by OEM-experienced engineers.</p>
+                    <p class="cn">从零基础到大师级的系统化新能源汽车维修课程，由具备主机厂经验的工程师英文授课。</p>
+                    <span class="arrow en">Learn More →</span>
+                    <span class="arrow cn">了解详情 →</span>
+                </a>
+                <a href="services.html" class="service-card fade-up">
+                    <div class="service-icon">👥</div>
                     <h3 class="en">EV Technician Talent Dispatch</h3>
                     <h3 class="cn">新能源车维修人才输送</h3>
-                    <p class="en">Professional EV technicians ready for deployment. We train and certify skilled repair personnel, then match them with workshops and dealerships worldwide.</p>
-                    <p class="cn">专业新能源维修技师定向输送。我们培训并认证技能型维修人员，为全球维修站和经销商精准匹配人才。</p>
-                    <div class="service-meta">
-                        <span class="en">Certified Technicians</span><span class="cn">认证技师</span>
-                        <span class="en">Global Placement</span><span class="cn">全球输送</span>
-                    </div>
-                </div>
-                <!-- Service 3 -->
-                <div class="service-card fade-up">
-                    <div class="service-icon"></div>
-                    <h3 class="en">Teaching & Business Transformation Solutions</h3>
-                    <h3 class="cn">教学&创业转型整体解决方案</h3>
-                    <p class="en">End-to-end solutions for auto service shops transitioning to EV. From curriculum design and equipment sourcing to operation setup and business planning.</p>
-                    <p class="cn">面向汽车服务门店电动化转型的端到端解决方案，涵盖课程体系设计、设备采购、运营搭建和商业规划。</p>
-                    <div class="service-meta">
-                        <span class="en">Turnkey Solution</span><span class="cn">整套方案</span>
-                        <span class="en">Startup Support</span><span class="cn">创业扶持</span>
-                    </div>
-                </div>
+                    <p class="en">Professional EV technicians trained, certified, and matched with workshops worldwide.</p>
+                    <p class="cn">专业新能源维修技师培训、认证，为全球维修站精准匹配人才。</p>
+                    <span class="arrow en">Learn More →</span>
+                    <span class="arrow cn">了解详情 →</span>
+                </a>
+                <a href="services.html" class="service-card fade-up">
+                    <div class="service-icon">🎯</div>
+                    <h3 class="en">Business Transformation</h3>
+                    <h3 class="cn">教学&创业转型方案</h3>
+                    <p class="en">End-to-end solutions for auto service shops transitioning to EV business.</p>
+                    <p class="cn">面向汽车服务门店电动化转型的端到端解决方案。</p>
+                    <span class="arrow en">Learn More →</span>
+                    <span class="arrow cn">了解详情 →</span>
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- ===== TRAINING COURSES ===== -->
-    <section class="section" id="courses">
-        <div class="container">
-            <div class="section-header fade-up">
-                <div class="section-tag en">Training Programs</div>
-                <div class="section-tag cn">培训课程</div>
-                <h2 class="en">EV Repair Training Courses</h2>
-                <h2 class="cn">新能源车修理课程</h2>
-                <p class="en">Click any course to inquire — our team will get back to you with detailed syllabus and pricing.</p>
-                <p class="cn">点击任意课程即可咨询——我们的团队将回复详细课程大纲和价格。</p>
-            </div>
-            <div class="course-grid">
-                <!-- Course 1: Beginner -->
-                <div class="course-card fade-up" onclick="openModal('training','0-Basic Course / 零基础课程')">
-                    <div class="course-level en">Beginner</div>
-                    <div class="course-level cn">入门</div>
-                    <div class="course-icon">🔋</div>
-                    <h3 class="en">0-Basic Course</h3>
-                    <h3 class="cn">零基础课程</h3>
-                    <p class="en">Start from scratch. Learn EV fundamentals, safety protocols, and basic diagnostic skills.</p>
-                    <p class="cn">从零开始。学习新能源汽车基础知识、安全规范和基本诊断技能。</p>
-                    <span class="course-link en">Learn More →</span>
-                    <span class="course-link cn">了解详情 →</span>
-                </div>
-                <!-- Course 2: Advanced -->
-                <div class="course-card fade-up" onclick="openModal('training','Advanced Course / 进阶学习')">
-                    <div class="course-level en">Advanced</div>
-                    <div class="course-level cn">进阶</div>
-                    <div class="course-icon">⚡</div>
-                    <h3 class="en">Advanced Course</h3>
-                    <h3 class="cn">进阶学习</h3>
-                    <p class="en">Deep dive into battery systems, motor control, and advanced diagnostic techniques.</p>
-                    <p class="cn">深入了解电池系统、电机控制和高级诊断技术。</p>
-                    <span class="course-link en">Learn More →</span>
-                    <span class="course-link cn">了解详情 →</span>
-                </div>
-                <!-- Course 3: Master -->
-                <div class="course-card fade-up" onclick="openModal('training','Master Course / 大师课')">
-                    <div class="course-level en">Master</div>
-                    <div class="course-level cn">大师</div>
-                    <div class="course-icon">🏆</div>
-                    <h3 class="en">Master Course</h3>
-                    <h3 class="cn">大师课</h3>
-                    <p class="en">Complete mastery of BMS programming, high-voltage systems, and component-level repair.</p>
-                    <p class="cn">全面掌握BMS编程、高压系统和元件级维修。</p>
-                    <span class="course-link en">Learn More →</span>
-                    <span class="course-link cn">了解详情 →</span>
-                </div>
-                <!-- Course 4: Custom -->
-                <div class="course-card fade-up" onclick="openModal('training','Customized Course / 定制化课程')">
-                    <div class="course-level en">Custom</div>
-                    <div class="course-level cn">定制</div>
-                    <div class="course-icon">🎯</div>
-                    <h3 class="en">Customized Course</h3>
-                    <h3 class="cn">定制化课程</h3>
-                    <p class="en">Tailored training programs designed around your specific needs and vehicle fleet.</p>
-                    <p class="cn">根据您的具体需求和车型定制的专属培训方案。</p>
-                    <span class="course-link en">Learn More →</span>
-                    <span class="course-link cn">了解详情 →</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== PRODUCTS ===== -->
+    <!-- PRODUCTS -->
     <section class="section" id="products" style="background:var(--bg)">
         <div class="container">
             <div class="section-header fade-up">
                 <div class="section-tag en">Our Products</div>
                 <div class="section-tag cn">产品中心</div>
-                <h2 class="en">EV Training Products & Resources</h2>
+                <h2 class="en">Training Products & Resources</h2>
                 <h2 class="cn">教学产品与资源</h2>
-                <p class="en">Professional tools, materials, and resources for EV repair training. Click to inquire.</p>
-                <p class="cn">专业新能源维修教学工具、资料和资源。点击咨询。</p>
+                <p class="en">Professional tools, materials, and resources for EV repair training.</p>
+                <p class="cn">专业新能源维修教学工具、资料和资源。</p>
             </div>
             <div class="product-grid">
-                <!-- Product 1: Online Courses -->
-                <div class="product-card fade-up" onclick="openModal('product','Online Courses / 线上课程')">
-                    <div class="product-visual">
-                        <span class="product-visual-icon">💻</span>
-                    </div>
+                <a href="products.html#online" class="product-card fade-up">
+                    <div class="product-visual">💻</div>
                     <div class="product-content">
                         <h3 class="en">Online Courses</h3>
                         <h3 class="cn">线上课程</h3>
-                        <p class="en">Self-paced video courses covering all EV systems. Learn anywhere, anytime with lifetime access.</p>
-                        <p class="cn">涵盖所有新能源系统的自主进度视频课程。随时随地学习，终身有效。</p>
+                        <p class="en">Self-paced video courses with lifetime access.</p>
+                        <p class="cn">自主进度视频课程，终身有效。</p>
                     </div>
-                </div>
-                <!-- Product 2: Equipment -->
-                <div class="product-card fade-up" onclick="openModal('product','Teaching Instruments & Equipment / 教学仪器和设备')">
-                    <div class="product-visual">
-                        <span class="product-visual-icon">🔧</span>
-                    </div>
+                </a>
+                <a href="products.html#equipment" class="product-card fade-up">
+                    <div class="product-visual">🔧</div>
                     <div class="product-content">
-                        <h3 class="en">Teaching Instruments & Equipment</h3>
+                        <h3 class="en">Teaching Equipment</h3>
                         <h3 class="cn">教学仪器和设备</h3>
-                        <p class="en">Professional-grade diagnostic tools, training rigs, and lab equipment for EV repair education.</p>
-                        <p class="cn">专业级诊断工具、实训台架和实验室设备，用于新能源维修教学。</p>
+                        <p class="en">Professional diagnostic tools and training rigs.</p>
+                        <p class="cn">专业级诊断工具和实训台架。</p>
                     </div>
-                </div>
-                <!-- Product 3: Repair Materials -->
-                <div class="product-card fade-up" onclick="openModal('product','EV Repair Materials / 电车维修资料')">
-                    <div class="product-visual">
-                        <span class="product-visual-icon">📚</span>
-                    </div>
+                </a>
+                <a href="products.html#materials" class="product-card fade-up">
+                    <div class="product-visual">📚</div>
                     <div class="product-content">
-                        <h3 class="en">EV Repair Materials</h3>
+                        <h3 class="en">Repair Materials</h3>
                         <h3 class="cn">电车维修资料</h3>
-                        <p class="en">Comprehensive technical manuals, wiring diagrams, and repair guides for all major EV brands.</p>
-                        <p class="cn">涵盖所有主流新能源品牌的技术手册、电路图和维修指南。</p>
+                        <p class="en">Technical manuals and wiring diagrams.</p>
+                        <p class="cn">技术手册和电路图。</p>
                     </div>
-                </div>
-                <!-- Product 4: Component Sourcing -->
-                <div class="product-card fade-up" onclick="openModal('product','Component Procurement / 配件代采')">
-                    <div class="product-visual">
-                        <span class="product-visual-icon">📦</span>
-                    </div>
+                </a>
+                <a href="products.html#components" class="product-card fade-up">
+                    <div class="product-visual">📦</div>
                     <div class="product-content">
-                        <h3 class="en">Component Procurement</h3>
+                        <h3 class="en">Component Sourcing</h3>
                         <h3 class="cn">配件代采</h3>
-                        <p class="en">Source high-quality EV components directly from Chinese manufacturers. Battery modules, motors, controllers and more.</p>
-                        <p class="cn">直接从中国制造商采购高品质新能源配件。电池模组、电机、控制器等。</p>
+                        <p class="en">Direct from Chinese manufacturers.</p>
+                        <p class="cn">直接从中国制造商采购。</p>
                     </div>
-                </div>
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- ===== TESTIMONIALS ===== -->
+    <!-- TESTIMONIALS -->
     <section class="section" id="testimonials">
         <div class="container">
             <div class="section-header fade-up">
@@ -557,89 +372,81 @@
                 <div class="section-tag cn">客户评价</div>
                 <h2 class="en">What Our Clients Say</h2>
                 <h2 class="cn">客户好评</h2>
-                <p class="en">Trusted by professionals and workshops worldwide.</p>
-                <p class="cn">受到全球专业人士和维修站的信赖。</p>
             </div>
             <div class="testimonial-grid">
-                <!-- Testimonial 1 -->
                 <div class="testimonial-card fade-up">
                     <div class="testimonial-stars">★★★★★</div>
-                    <p class="testimonial-text en">"The master course completely transformed our workshop capabilities. The instructors' OEM experience made all the difference — we're now servicing BYD and NIO vehicles independently."</p>
-                    <p class="testimonial-text cn">"大师课程彻底提升了我们维修站的能力。讲师的主机厂经验带来了质的飞跃——我们现在可以独立维修比亚迪和蔚来车辆。"</p>
+                    <p class="testimonial-text en">"The master course completely transformed our workshop capabilities. We're now servicing BYD and NIO vehicles independently."</p>
+                    <p class="testimonial-text cn">"大师课程彻底提升了我们维修站的能力。我们现在可以独立维修比亚迪和蔚来车辆。"</p>
                     <div class="testimonial-author">
                         <div class="testimonial-avatar">AH</div>
                         <div>
-                            <div class="testimonial-name"><span class="testimonial-flag">🇩🇪</span>Ahmad Hassan</div>
+                            <div class="testimonial-name">🇩🇪 Ahmad Hassan</div>
                             <div class="testimonial-meta en">Workshop Owner, Germany · Mar 2026</div>
                             <div class="testimonial-meta cn">维修站老板，德国 · 2026年3月</div>
                         </div>
                     </div>
                 </div>
-                <!-- Testimonial 2 -->
                 <div class="testimonial-card fade-up">
                     <div class="testimonial-stars">★★★★★</div>
-                    <p class="testimonial-text en">"Excellent training program. The hands-on approach with real EV components gave our team practical skills we use daily. Worth every penny."</p>
-                    <p class="testimonial-text cn">"出色的培训项目。通过真实新能源配件的实操教学，我们的团队获得了每天都能用到的实用技能。物超所值。"</p>
+                    <p class="testimonial-text en">"Excellent training program. The hands-on approach gave our team practical skills we use daily."</p>
+                    <p class="testimonial-text cn">"出色的培训项目。实操教学让我们的团队获得了每天都能用到的实用技能。"</p>
                     <div class="testimonial-author">
                         <div class="testimonial-avatar">RP</div>
                         <div>
-                            <div class="testimonial-name"><span class="testimonial-flag">🇬🇧</span>Raj Patel</div>
+                            <div class="testimonial-name">🇬🇧 Raj Patel</div>
                             <div class="testimonial-meta en">Fleet Manager, UK · Feb 2026</div>
                             <div class="testimonial-meta cn">车队经理，英国 · 2026年2月</div>
                         </div>
                     </div>
                 </div>
-                <!-- Testimonial 3 -->
                 <div class="testimonial-card fade-up">
                     <div class="testimonial-stars">★★★★★</div>
-                    <p class="testimonial-text en">"AAPTEC helped us set up our entire EV training center. From equipment sourcing to curriculum design, their turnkey solution saved us months of planning."</p>
-                    <p class="testimonial-text cn">"AAPTEC帮助我们搭建了整个新能源培训中心。从设备采购到课程体系设计，他们的整套方案为我们节省了数月的筹备时间。"</p>
+                    <p class="testimonial-text en">"AAPTEC helped us set up our entire EV training center. Their turnkey solution saved us months."</p>
+                    <p class="testimonial-text cn">"AAPTEC帮助我们搭建了整个新能源培训中心。他们的整套方案为我们节省了数月时间。"</p>
                     <div class="testimonial-author">
                         <div class="testimonial-avatar">MC</div>
                         <div>
-                            <div class="testimonial-name"><span class="testimonial-flag">🇦🇺</span>Michael Chen</div>
+                            <div class="testimonial-name">🇦🇺 Michael Chen</div>
                             <div class="testimonial-meta en">Training Director, Australia · Jan 2026</div>
                             <div class="testimonial-meta cn">培训总监，澳大利亚 · 2026年1月</div>
                         </div>
                     </div>
                 </div>
-                <!-- Testimonial 4 -->
                 <div class="testimonial-card fade-up">
                     <div class="testimonial-stars">★★★★★</div>
-                    <p class="testimonial-text en">"The component sourcing service is outstanding. Genuine parts at competitive prices with fast shipping. Our repair turnaround time has improved dramatically."</p>
-                    <p class="testimonial-text cn">"配件代采服务非常出色。正品配件，价格有竞争力，发货快。我们的维修周转时间大幅缩短。"</p>
+                    <p class="testimonial-text en">"Outstanding component sourcing service. Genuine quality parts delivered reliably to Lagos."</p>
+                    <p class="testimonial-text cn">"出色的配件代采服务。正品质量配件稳定交付到拉各斯。"</p>
                     <div class="testimonial-author">
                         <div class="testimonial-avatar">SK</div>
                         <div>
-                            <div class="testimonial-name"><span class="testimonial-flag">🇳🇬</span>Samuel KO</div>
+                            <div class="testimonial-name">🇳🇬 Samuel KO</div>
                             <div class="testimonial-meta en">Auto Shop Owner, Nigeria · Dec 2025</div>
                             <div class="testimonial-meta cn">汽修店老板，尼日利亚 · 2025年12月</div>
                         </div>
                     </div>
                 </div>
-                <!-- Testimonial 5 -->
                 <div class="testimonial-card fade-up">
                     <div class="testimonial-stars">★★★★★</div>
-                    <p class="testimonial-text en">"We sent 5 technicians for the advanced course. All came back with certifications and the confidence to handle complex EV diagnostics. Highly recommended!"</p>
-                    <p class="testimonial-text cn">"我们派了5名技师参加进阶课程。全部获得认证，有能力处理复杂的新能源诊断。强烈推荐！"</p>
+                    <p class="testimonial-text en">"We sent 5 technicians for the advanced course. All passed certification. Highly recommend."</p>
+                    <p class="testimonial-text cn">"我们派了5名技师参加进阶课程。全部通过认证。强烈推荐。"</p>
                     <div class="testimonial-author">
                         <div class="testimonial-avatar">JL</div>
                         <div>
-                            <div class="testimonial-name"><span class="testimonial-flag">🇧🇷</span>João Lima</div>
+                            <div class="testimonial-name">🇧🇷 João Lima</div>
                             <div class="testimonial-meta en">Service Manager, Brazil · Nov 2025</div>
                             <div class="testimonial-meta cn">服务经理，巴西 · 2025年11月</div>
                         </div>
                     </div>
                 </div>
-                <!-- Testimonial 6 -->
                 <div class="testimonial-card fade-up">
                     <div class="testimonial-stars">★★★★★</div>
-                    <p class="testimonial-text en">"The online courses are perfect for our remote team. High-quality video content with real-world scenarios. We've enrolled our entire technical staff."</p>
-                    <p class="testimonial-text cn">"线上课程非常适合我们的远程团队。高质量视频内容配合真实场景案例。我们已让全体技术人员注册学习。"</p>
+                    <p class="testimonial-text en">"Online courses allowed our remote team in Riyadh to train without travel. Excellent content."</p>
+                    <p class="testimonial-text cn">"线上课程让利雅得的远程团队无需出差即可培训。内容优秀。"</p>
                     <div class="testimonial-author">
-                        <div class="testimonial-avatar">FK</div>
+                        <div class="testimonial-avatar">FA</div>
                         <div>
-                            <div class="testimonial-name"><span class="testimonial-flag">🇸🇦</span>Fahad Al-Khalidi</div>
+                            <div class="testimonial-name">🇸🇦 Fahad Al-Khalidi</div>
                             <div class="testimonial-meta en">Technical Director, Saudi Arabia · Oct 2025</div>
                             <div class="testimonial-meta cn">技术总监，沙特阿拉伯 · 2025年10月</div>
                         </div>
@@ -649,207 +456,48 @@
         </div>
     </section>
 
-    <!-- ===== ABOUT US ===== -->
-    <section class="section" id="about" style="background:var(--bg)">
-        <div class="container">
-            <div class="about-grid">
-                <div class="about-content fade-up">
-                    <div class="section-tag en">About Us</div>
-                    <div class="section-tag cn">关于我们</div>
-                    <h2 class="en">Your Trusted EV Partner</h2>
-                    <h2 class="cn">您值得信赖的新能源合作伙伴</h2>
-                    <p class="en">As the largest new energy vehicle technical training organization in South-Central China, AAPtec provides integrated services including advanced EV three-electric maintenance training, professional talent dispatch and comprehensive transformation solutions for auto service startups.</p>
-                    <p class="cn">AAPtec 为中国中南地区规模最大的新能源汽车技术培训机构，主营高阶三电维修实训、专业技师定向输送、汽服门店创业转型全案服务。</p>
-                    <p class="en">All instructors are veteran R&D engineers from top automotive OEMs with in-depth experience in new energy vehicle core component development, mastering official factory technical specifications. Supported by numerous verified successful projects, we have served more than 100 global clients.</p>
-                    <p class="cn">教研师资全系头部主机厂原厂研发工程师，全员深耕新能源整车、三电系统正向研发，掌握原厂核心技术标准。依托大量落地标杆成功案例，业务辐射全球，累计服务海内外 100 余家合作客户。</p>
-                    <p class="en">Drawing on original-equipment R&D expertise, we deliver standardized high-level curricula and complete implementable operation packages, empowering technicians and service shops to embrace electrification, and standing as a benchmark for EV talent cultivation in the region.</p>
-                    <p class="cn">我们依托原厂研发级技术底蕴，输出标准化高阶课程与整套落地运营方案，赋能技师精进技术、门店实现电动化升级，构筑区域新能源后市场人才培育标杆。</p>
-                    <div class="about-features">
-                        <div class="about-feature">
-                            <div class="icon">⚡</div>
-                            <div class="text en">OEM-Level R&D Team</div>
-                            <div class="text cn">原厂研发级团队</div>
-                        </div>
-                        <div class="about-feature">
-                            <div class="icon">🌍</div>
-                            <div class="text en">100+ Global Clients</div>
-                            <div class="text cn">100+全球客户</div>
-                        </div>
-                        <div class="about-feature">
-                            <div class="icon">🎯</div>
-                            <div class="text en">Turnkey Solutions</div>
-                            <div class="text cn">整套落地方案</div>
-                        </div>
-                        <div class="about-feature">
-                            <div class="icon">🏆</div>
-                            <div class="text en">Industry Benchmark</div>
-                            <div class="text cn">区域标杆</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="about-images fade-up">
-                    <div class="about-img-placeholder">AAPTEC Training Center</div>
-                    <div class="about-img-placeholder">EV Lab</div>
-                    <div class="about-img-placeholder">Workshop</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== CTA BANNER ===== -->
+    <!-- CTA -->
     <section class="cta-banner">
         <div class="container fade-up">
             <h2 class="en">Ready to Start Your EV Business?</h2>
             <h2 class="cn">准备好开展您的新能源业务了吗？</h2>
-            <p class="en">Join hundreds of professionals who trust AAPTEC for their EV repair, training, and component needs.</p>
-            <p class="cn">加入数百位信赖AAPTEC新能源维修、培训和配件服务的专业人士。</p>
-            <a href="#contact" class="btn-white">
-                <span class="en">Get Started Today</span>
-                <span class="cn">立即开始</span> →
-            </a>
+            <p class="en">Join hundreds of professionals who trust AAPTEC.</p>
+            <p class="cn">加入数百位信赖AAPTEC的专业人士。</p>
+            <a href="contact.html" class="btn-white"><span class="en">Get Started Today</span><span class="cn">立即开始</span> →</a>
         </div>
     </section>
 
-    <!-- ===== CONTACT ===== -->
-    <section class="section" id="contact">
-        <div class="container">
-            <div class="section-header fade-up">
-                <div class="section-tag en">Get In Touch</div>
-                <div class="section-tag cn">联系我们</div>
-                <h2 class="en">Contact Us</h2>
-                <h2 class="cn">联系我们</h2>
-                <p class="en">Have questions? Reach out to us and we'll get back to you within 24 hours.</p>
-                <p class="cn">有疑问？请联系我们，我们将在24小时内回复。</p>
-            </div>
-            <div class="contact-grid">
-                <div class="fade-up">
-                    <div class="contact-info">
-                        <h3 class="en">Contact Information</h3>
-                        <h3 class="cn">联系信息</h3>
-                        <div class="contact-item">
-                            <div class="icon">📧</div>
-                            <div>
-                                <div class="label en">Email</div>
-                                <div class="label cn">邮箱</div>
-                                <div class="value">sales@aaptec.com.cn</div>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="icon">💬</div>
-                            <div>
-                                <div class="label">WhatsApp</div>
-                                <div class="value">+86 136 7731 0469</div>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="icon">📘</div>
-                            <div>
-                                <div class="label">Facebook</div>
-                                <div class="value"><a href="https://facebook.com/EVaaptec" target="_blank" style="color:var(--primary);text-decoration:none">facebook.com/EVaaptec</a></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="contact-form fade-up">
-                    <h3 class="en">Send Us a Message</h3>
-                    <h3 class="cn">给我们留言</h3>
-                    <form onsubmit="event.preventDefault();alert('Thank you! We will get back to you soon.')">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label class="en">Name *</label>
-                                <label class="cn">姓名 *</label>
-                                <input type="text" required placeholder="Your name">
-                            </div>
-                            <div class="form-group">
-                                <label class="en">Email *</label>
-                                <label class="cn">邮箱 *</label>
-                                <input type="email" required placeholder="your@email.com">
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label class="en">Country *</label>
-                                <label class="cn">国家 *</label>
-                                <input type="text" required placeholder="Your country">
-                            </div>
-                            <div class="form-group">
-                                <label>WhatsApp</label>
-                                <input type="tel" placeholder="+86 ...">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="en">Subject</label>
-                            <label class="cn">主题</label>
-                            <select>
-                                <option value="" disabled selected>Select a subject...</option>
-                                <option>EV Repair Training</option>
-                                <option>Technician Talent Dispatch</option>
-                                <option>Business Transformation</option>
-                                <option>Online Courses</option>
-                                <option>Equipment Inquiry</option>
-                                <option>Repair Materials</option>
-                                <option>Component Procurement</option>
-                                <option>Other</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label class="en">Inquiry *</label>
-                            <label class="cn">需求 *</label>
-                            <textarea required placeholder="Tell us about your needs (max 250 characters)..." maxlength="250" oninput="updateCharCount(this,'mainCharCount')"></textarea>
-                            <div class="char-count" id="mainCharCount">0/250</div>
-                        </div>
-                        <button type="submit" class="form-submit">
-                            <span class="en">Send Message</span>
-                            <span class="cn">发送消息</span>
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== FOOTER ===== -->
+    <!-- FOOTER -->
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <a href="#" class="logo">
-                        <img src="images/logo.png" alt="AAPTEC">
-                    </a>
-                    <p class="en">One-stop solutions for new energy vehicle repair, professional training, and high-quality EV components. Empowering your EV business worldwide.</p>
-                    <p class="cn">新能源汽车维修、专业培训和高品质配件的一站式解决方案。助力您的新能源业务走向全球。</p>
-                    <div class="footer-social">
-                        <a href="https://wa.me/8613677310469" target="_blank" title="WhatsApp">💬</a>
-                        <a href="https://facebook.com/EVaaptec" target="_blank" title="Facebook">📘</a>
-                        <a href="mailto:sales@aaptec.com.cn" title="Email">📧</a>
-                    </div>
+                    <a href="index.html" class="logo"><img src="images/logo-header.png" alt="AAPTEC"></a>
+                    <p class="en">One-stop solutions for new energy vehicle repair, professional training, and high-quality EV components.</p>
+                    <p class="cn">新能源汽车维修、专业培训和高品质配件的一站式解决方案。</p>
                 </div>
                 <div>
-                    <h4 class="en">Services</h4>
-                    <h4 class="cn">服务</h4>
+                    <h4 class="en">Services</h4><h4 class="cn">服务</h4>
                     <ul class="footer-links">
-                        <li><a href="#services" class="en">EV Repair Training</a><a href="#services" class="cn">维修培训</a></li>
-                        <li><a href="#services" class="en">Talent Dispatch</a><a href="#services" class="cn">人才输送</a></li>
-                        <li><a href="#services" class="en">Business Solutions</a><a href="#services" class="cn">创业转型</a></li>
+                        <li><a href="training.html" class="en">EV Repair Training</a><a href="training.html" class="cn">维修培训</a></li>
+                        <li><a href="services.html" class="en">Talent Dispatch</a><a href="services.html" class="cn">人才输送</a></li>
+                        <li><a href="services.html" class="en">Business Solutions</a><a href="services.html" class="cn">创业转型</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="en">Products</h4>
-                    <h4 class="cn">产品</h4>
+                    <h4 class="en">Products</h4><h4 class="cn">产品</h4>
                     <ul class="footer-links">
-                        <li><a href="#products" class="en">Online Courses</a><a href="#products" class="cn">线上课程</a></li>
-                        <li><a href="#products" class="en">Equipment</a><a href="#products" class="cn">教学设备</a></li>
-                        <li><a href="#products" class="en">Repair Materials</a><a href="#products" class="cn">维修资料</a></li>
-                        <li><a href="#products" class="en">Components</a><a href="#products" class="cn">配件代采</a></li>
+                        <li><a href="products.html" class="en">Online Courses</a><a href="products.html" class="cn">线上课程</a></li>
+                        <li><a href="products.html" class="en">Equipment</a><a href="products.html" class="cn">教学设备</a></li>
+                        <li><a href="products.html" class="en">Materials</a><a href="products.html" class="cn">维修资料</a></li>
+                        <li><a href="products.html" class="en">Components</a><a href="products.html" class="cn">配件代采</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="en">Contact</h4>
-                    <h4 class="cn">联系方式</h4>
+                    <h4 class="en">Contact</h4><h4 class="cn">联系方式</h4>
                     <ul class="footer-links">
                         <li><a href="mailto:sales@aaptec.com.cn">sales@aaptec.com.cn</a></li>
                         <li><a href="https://wa.me/8613677310469" target="_blank">WhatsApp: +86 136 7731 0469</a></li>
-                        <li><a href="https://facebook.com/EVaaptec" target="_blank">Facebook</a></li>
                     </ul>
                 </div>
             </div>
@@ -860,170 +508,14 @@
         </div>
     </footer>
 
-    <!-- ===== MODAL ===== -->
-    <div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
-        <div class="modal" onclick="event.stopPropagation()">
-            <div class="modal-header">
-                <div>
-                    <h3 id="modalTitle">Inquiry</h3>
-                    <p id="modalSubtitle"></p>
-                </div>
-                <button class="modal-close" onclick="closeModal()">&times;</button>
-            </div>
-            <div class="modal-body">
-                <form onsubmit="event.preventDefault();closeModal();alert('Thank you! We will get back to you within 24 hours.')">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label class="en">Name *</label>
-                            <label class="cn">姓名 *</label>
-                            <input type="text" required placeholder="Your name">
-                        </div>
-                        <div class="form-group">
-                            <label class="en">Country *</label>
-                            <label class="cn">国家 *</label>
-                            <input type="text" required placeholder="Your country">
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label class="en">Email *</label>
-                            <label class="cn">邮箱 *</label>
-                            <input type="email" required placeholder="your@email.com">
-                        </div>
-                        <div class="form-group">
-                            <label>WhatsApp</label>
-                            <input type="tel" placeholder="+86 ...">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="en">Subject</label>
-                        <label class="cn">主题</label>
-                        <select id="modalSubject">
-                            <option value="" disabled selected>Select a subject...</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label class="en">Inquiry *</label>
-                        <label class="cn">需求 *</label>
-                        <textarea required placeholder="Tell us about your needs (max 250 characters)..." maxlength="250" oninput="updateCharCount(this,'modalCharCount')"></textarea>
-                        <div class="char-count" id="modalCharCount">0/250</div>
-                    </div>
-                    <button type="submit" class="form-submit">
-                        <span class="en">Submit Inquiry</span>
-                        <span class="cn">提交咨询</span>
-                    </button>
-                </form>
-            </div>
-        </div>
-    </div>
-
-    <!-- ===== SCRIPTS ===== -->
     <script>
-        // Language Toggle
-        let isCn = false;
-        function toggleLang() {
-            isCn = !isCn;
-            document.body.classList.toggle('cn-mode', isCn);
-            document.getElementById('lang-en').classList.toggle('active', !isCn);
-            document.getElementById('lang-cn').classList.toggle('active', isCn);
-            document.documentElement.lang = isCn ? 'zh-CN' : 'en';
-        }
-
-        // Sticky Header
-        window.addEventListener('scroll', () => {
-            document.getElementById('header').classList.toggle('scrolled', window.scrollY > 20);
-        });
-
-        // Mobile Nav
-        function toggleMobile() {
-            document.getElementById('mobileNav').classList.toggle('open');
-            document.getElementById('mobileOverlay').classList.toggle('open');
-        }
-
-        // Modal
-        const trainingSubjects = [
-            '0-Basic Course / 零基础课程',
-            'Advanced Course / 进阶学习',
-            'Master Course / 大师课',
-            'Customized Course / 定制化课程'
-        ];
-        const productSubjects = [
-            'Online Courses / 线上课程',
-            'Teaching Instruments & Equipment / 教学仪器和设备',
-            'EV Repair Materials / 电车维修资料',
-            'Component Procurement / 配件代采'
-        ];
-
-        function openModal(type, preselect) {
-            const overlay = document.getElementById('modalOverlay');
-            const title = document.getElementById('modalTitle');
-            const subtitle = document.getElementById('modalSubtitle');
-            const subjectSelect = document.getElementById('modalSubject');
-
-            // Set title
-            if (type === 'training') {
-                title.textContent = isCn ? '课程咨询' : 'Course Inquiry';
-                subtitle.textContent = preselect;
-                populateSelect(subjectSelect, trainingSubjects, preselect);
-            } else {
-                title.textContent = isCn ? '产品咨询' : 'Product Inquiry';
-                subtitle.textContent = preselect;
-                populateSelect(subjectSelect, productSubjects, preselect);
-            }
-
-            overlay.classList.add('open');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function populateSelect(select, options, preselect) {
-            select.innerHTML = '<option value="" disabled>Select a subject...</option>';
-            options.forEach(opt => {
-                const option = document.createElement('option');
-                option.value = opt;
-                option.textContent = opt;
-                if (opt === preselect) option.selected = true;
-                select.appendChild(option);
-            });
-        }
-
-        function closeModal(e) {
-            if (e && e.target !== e.currentTarget) return;
-            document.getElementById('modalOverlay').classList.remove('open');
-            document.body.style.overflow = '';
-        }
-
-        // Close modal on Escape
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') closeModal();
-        });
-
-        // Character count
-        function updateCharCount(textarea, countId) {
-            const count = textarea.value.length;
-            document.getElementById(countId).textContent = count + '/250';
-        }
-
-        // Scroll Animations
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.1 });
-        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            });
-        });
+        let isCn=false;
+        function toggleLang(){isCn=!isCn;document.body.classList.toggle('cn-mode',isCn);document.getElementById('lang-en').classList.toggle('active',!isCn);document.getElementById('lang-cn').classList.toggle('active',isCn);document.documentElement.lang=isCn?'zh-CN':'en'}
+        window.addEventListener('scroll',()=>{document.getElementById('header').classList.toggle('scrolled',window.scrollY>20)});
+        function toggleMobile(){document.getElementById('mobileNav').classList.toggle('open');document.getElementById('mobileOverlay').classList.toggle('open')}
+        const observer=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')})},{threshold:0.1});
+        document.querySelectorAll('.fade-up').forEach(el=>observer.observe(el));
+        document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',function(e){e.preventDefault();const t=document.querySelector(this.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth',block:'start'})})});
     </script>
-
 </body>
 </html>

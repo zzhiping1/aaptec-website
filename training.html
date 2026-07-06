@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Training Courses - AAPTEC</title>
+    <meta name="description" content="AAPTEC professional EV repair training courses — from beginner to master level. Learn battery diagnostics, motor control, BMS programming, and more.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        :root{
+            --primary:#0045A5;
+            --primary-dark:#003580;
+            --primary-deep:#07192F;
+            --primary-light:#E8F4FD;
+            --accent:#00A3FF;
+            --success:#059669;
+            --white:#FFFFFF;
+            --text:#303030;
+            --text-light:#6B7280;
+            --bg:#F8FAFC;
+            --border:#E5E7EB;
+            --shadow:0 18px 50px rgba(15,35,70,0.10);
+            --gold:#F59E0B;
+        }
+        html{scroll-behavior:smooth;scroll-padding-top:92px}
+        body{font-family:'Inter',sans-serif;color:var(--text);line-height:1.6;overflow-x:hidden}
+
+        /* TOP BAR */
+        .topbar{background:var(--primary-dark);color:rgba(255,255,255,0.9);font-size:13px;padding:8px 0}
+        .topbar .container{display:flex;justify-content:space-between;align-items:center}
+        .topbar a{color:rgba(255,255,255,0.9);text-decoration:none;margin-left:16px;transition:color .2s}
+        .topbar a:hover{color:#fff}
+
+        /* HEADER */
+        .header{background:rgba(255,255,255,0.96);backdrop-filter:blur(18px);box-shadow:0 1px 3px rgba(0,0,0,0.08);position:sticky;top:0;z-index:1000;transition:box-shadow .3s}
+        .header.scrolled{box-shadow:0 4px 20px rgba(0,0,0,0.12)}
+        .header .container{display:flex;justify-content:space-between;align-items:center;height:80px}
+        .logo{text-decoration:none;display:flex;align-items:center}
+        .logo img{height:48px;width:auto}
+        .nav-links{display:flex;align-items:center;gap:32px;list-style:none}
+        .nav-links a{text-decoration:none;color:var(--text);font-weight:500;font-size:15px;transition:color .2s;position:relative}
+        .nav-links a:hover{color:var(--primary)}
+        .nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--primary);transition:width .3s}
+        .nav-links a:hover::after{width:100%}
+        .lang-toggle{display:flex;align-items:center;background:var(--primary-light);border-radius:20px;padding:3px;cursor:pointer;border:none}
+        .lang-btn{padding:5px 14px;border-radius:18px;font-size:13px;font-weight:600;border:none;cursor:pointer;transition:all .2s;font-family:'Inter',sans-serif}
+        .lang-btn.active{background:var(--primary);color:#fff}
+        .lang-btn:not(.active){background:transparent;color:var(--primary)}
+        .cta-btn{background:var(--primary);color:#fff;padding:10px 24px;border-radius:8px;text-decoration:none;font-weight:600;font-size:14px;transition:all .2s;border:none;cursor:pointer;display:inline-flex;align-items:center;gap:6px}
+        .cta-btn:hover{background:var(--primary-dark);transform:translateY(-1px);box-shadow:0 4px 12px rgba(0,69,165,0.3)}
+        .mobile-menu{display:none;background:none;border:none;cursor:pointer;padding:8px}
+        .mobile-menu span{display:block;width:24px;height:2px;background:var(--text);margin:5px 0;transition:all .3s}
+
+        .container{max-width:1200px;margin:0 auto;padding:0 24px}
+
+        /* HERO - TRAINING PAGE (smaller) */
+        .hero-training{background:radial-gradient(circle at 80% 20%,rgba(0,163,255,.36),transparent 34%),linear-gradient(135deg,var(--primary-deep) 0%,var(--primary-dark) 45%,var(--primary) 100%);color:#fff;padding:60px 0 70px;position:relative;overflow:hidden;text-align:center}
+        .hero-training::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px);background-size:52px 52px;opacity:.65}
+        .hero-training::after{content:'';position:absolute;right:4%;bottom:-70px;width:42%;height:170px;background:rgba(0,163,255,.18);filter:blur(70px)}
+        .hero-training .container{position:relative;z-index:1}
+        .hero-training h1{font-family:'Plus Jakarta Sans',sans-serif;font-size:40px;font-weight:800;line-height:1.15;margin-bottom:16px}
+        .hero-training h1 span{color:#A7D6FF}
+        .hero-training p{font-size:17px;color:rgba(255,255,255,0.82);margin:0 auto 0;max-width:600px}
+
+        /* SECTIONS */
+        .section{padding:80px 0}
+        .section-header{text-align:center;margin-bottom:50px}
+        .section-tag{display:inline-block;background:var(--primary-light);color:var(--primary);padding:6px 16px;border-radius:20px;font-size:13px;font-weight:600;margin-bottom:14px;text-transform:uppercase;letter-spacing:0.5px}
+        .section-header h2{font-family:'Plus Jakarta Sans',sans-serif;font-size:36px;font-weight:700;color:var(--text);margin-bottom:14px}
+        .section-header p{font-size:17px;color:var(--text-light);max-width:600px;margin:0 auto}
+
+        /* COURSE DETAIL SECTION */
+        .course-detail{padding:64px 0;border-bottom:1px solid var(--border)}
+        .course-detail:last-of-type{border-bottom:none}
+        .course-detail-inner{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:start}
+        .course-detail-inner.reverse{direction:rtl}.course-detail-inner.reverse>*{direction:ltr}
+
+        .course-detail-left{position:relative}
+        .course-badge{display:inline-block;padding:5px 16px;border-radius:999px;font-size:12px;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:16px}
+        .course-badge.beginner{background:var(--success)}
+        .course-badge.advanced{background:var(--accent)}
+        .course-badge.master{background:var(--primary-deep)}
+        .course-badge.custom{background:var(--gold)}
+
+        .course-detail-icon{font-size:48px;margin-bottom:12px}
+        .course-detail h2{font-family:'Plus Jakarta Sans',sans-serif;font-size:30px;font-weight:700;color:var(--text);margin-bottom:6px}
+        .course-detail .subtitle{font-size:15px;color:var(--text-light);margin-bottom:12px}
+        .course-detail .duration{display:inline-flex;align-items:center;gap:6px;background:var(--primary-light);color:var(--primary);padding:5px 14px;border-radius:8px;font-size:13px;font-weight:600;margin-bottom:20px}
+        .course-detail .description{font-size:15px;color:var(--text-light);line-height:1.8;margin-bottom:24px}
+
+        .course-detail-right{padding:32px;background:var(--white);border:1px solid var(--border);border-radius:14px}
+        .topics-heading{font-family:'Plus Jakarta Sans',sans-serif;font-size:17px;font-weight:700;color:var(--text);margin-bottom:16px}
+        .topics-list{list-style:none;margin-bottom:24px}
+        .topics-list li{padding:10px 0;border-bottom:1px solid var(--border);font-size:14px;color:var(--text-light);display:flex;align-items:center;gap:10px}
+        .topics-list li:last-child{border-bottom:none}
+        .topics-list li::before{content:'';width:8px;height:8px;border-radius:50%;flex-shrink:0}
+        .course-detail:nth-child(odd of .course-detail) .topics-list li::before,
+        .course-detail:nth-of-type(1) .topics-list li::before{background:var(--success)}
+        .course-detail:nth-of-type(2) .topics-list li::before{background:var(--accent)}
+        .course-detail:nth-of-type(3) .topics-list li::before{background:var(--primary-deep)}
+        .course-detail:nth-of-type(4) .topics-list li::before{background:var(--gold)}
+
+        .btn-inquire{background:var(--primary);color:#fff;padding:12px 28px;border-radius:10px;text-decoration:none;font-weight:600;font-size:15px;transition:all .2s;border:none;cursor:pointer;display:inline-flex;align-items:center;gap:8px;font-family:'Inter',sans-serif}
+        .btn-inquire:hover{background:var(--primary-dark);transform:translateY(-1px);box-shadow:0 4px 14px rgba(0,69,165,0.3)}
+
+        /* MODAL */
+        .modal-overlay{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:5000;justify-content:center;align-items:center;padding:24px}
+        .modal-overlay.open{display:flex}
+        .modal{background:var(--white);border-radius:16px;width:100%;max-width:560px;max-height:90vh;overflow-y:auto;position:relative}
+        .modal-header{padding:24px 28px 0;display:flex;justify-content:space-between;align-items:flex-start}
+        .modal-header h3{font-family:'Plus Jakarta Sans',sans-serif;font-size:22px;font-weight:700;color:var(--text);margin-bottom:2px}
+        .modal-header p{font-size:14px;color:var(--text-light);margin:0}
+        .modal-close{background:none;border:none;font-size:28px;cursor:pointer;color:var(--text-light);padding:0 0 0 12px;line-height:1;transition:color .2s}
+        .modal-close:hover{color:var(--text)}
+        .modal-body{padding:24px 28px 28px}
+
+        .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+        .form-group{margin-bottom:16px}
+        .form-group label{display:block;font-size:13px;font-weight:600;color:var(--text);margin-bottom:6px}
+        .form-group input,
+        .form-group select,
+        .form-group textarea{width:100%;padding:10px 14px;border:1px solid var(--border);border-radius:8px;font-size:14px;font-family:'Inter',sans-serif;color:var(--text);transition:border-color .2s,box-shadow .2s;background:var(--white)}
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus{outline:none;border-color:var(--primary);box-shadow:0 0 0 3px rgba(0,69,165,0.1)}
+        .form-group textarea{resize:vertical;min-height:90px}
+        .char-counter{font-size:12px;color:var(--text-light);text-align:right;margin-top:4px}
+        .char-counter.limit{color:#EF4444}
+        .form-submit{width:100%;padding:12px;background:var(--primary);color:#fff;border:none;border-radius:10px;font-size:15px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;transition:all .2s;margin-top:4px}
+        .form-submit:hover{background:var(--primary-dark);box-shadow:0 4px 14px rgba(0,69,165,0.3)}
+
+        /* QUICK NAV (sidebar-like links between courses) */
+        .course-nav{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-bottom:0;padding:20px 0;background:var(--bg)}
+        .course-nav a{padding:10px 22px;border-radius:10px;background:var(--white);border:1px solid var(--border);text-decoration:none;font-weight:600;font-size:14px;color:var(--text);transition:all .2s;display:flex;align-items:center;gap:8px}
+        .course-nav a:hover{border-color:var(--primary);color:var(--primary);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,69,165,0.1)}
+
+        /* CTA */
+        .cta-banner{background:linear-gradient(135deg,var(--primary-dark),var(--primary));padding:60px 0;text-align:center;color:#fff}
+        .cta-banner h2{font-family:'Plus Jakarta Sans',sans-serif;font-size:32px;font-weight:700;margin-bottom:14px}
+        .cta-banner p{font-size:17px;color:rgba(255,255,255,0.85);margin-bottom:28px}
+
+        /* BUTTONS */
+        .btn-white{background:#fff;color:var(--primary);padding:14px 32px;border-radius:10px;text-decoration:none;font-weight:600;font-size:16px;transition:all .2s;display:inline-flex;align-items:center;gap:8px}
+        .btn-white:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,0.15)}
+
+        /* FOOTER */
+        .footer{background:var(--text);color:rgba(255,255,255,0.7);padding:60px 0 0}
+        .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px}
+        .footer-brand .logo{margin-bottom:16px;display:inline-flex}
+        .footer-brand .logo img{height:40px}
+        .footer-brand p{font-size:14px;line-height:1.7;color:rgba(255,255,255,0.6);margin-top:12px}
+        .footer h4{color:#fff;font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;font-weight:700;margin-bottom:18px}
+        .footer-links{list-style:none}
+        .footer-links li{margin-bottom:10px}
+        .footer-links a{color:rgba(255,255,255,0.6);text-decoration:none;font-size:14px;transition:color .2s}
+        .footer-links a:hover{color:#fff}
+        .footer-bottom{border-top:1px solid rgba(255,255,255,0.1);padding:20px 0;text-align:center;font-size:13px;color:rgba(255,255,255,0.4)}
+
+        /* LANGUAGE */
+        .cn{display:none!important}
+        body.cn-mode .en{display:none!important}
+        body.cn-mode span.cn,body.cn-mode a.cn{display:inline!important}
+        body.cn-mode div.cn,body.cn-mode p.cn,body.cn-mode h1.cn,body.cn-mode h2.cn,body.cn-mode h3.cn,body.cn-mode h4.cn{display:block!important}
+
+        /* ANIMATIONS */
+        .fade-up{opacity:1;transform:none;transition:opacity .45s,transform .45s}
+
+        /* RESPONSIVE */
+        @media(max-width:968px){
+            .course-detail-inner{grid-template-columns:1fr;gap:32px}
+            .footer-grid{grid-template-columns:1fr 1fr}
+            .nav-links{display:none}
+            .mobile-menu{display:block}
+            .hero-training h1{font-size:32px}
+            .form-row{grid-template-columns:1fr}
+        }
+        @media(max-width:640px){
+            .hero-training{padding:50px 0 56px}
+            .hero-training h1{font-size:26px}
+            .footer-grid{grid-template-columns:1fr}
+            .topbar .container{flex-direction:column;gap:4px}
+            .header .container{height:66px}
+            .logo img{height:36px}
+            .cta-btn{display:none}
+            .course-nav{gap:8px}
+            .course-nav a{padding:8px 16px;font-size:13px}
+        }
+
+        /* MOBILE NAV */
+        .mobile-nav{position:fixed;top:0;right:-100%;width:300px;height:100vh;background:var(--white);z-index:2000;box-shadow:-4px 0 20px rgba(0,0,0,0.1);transition:right .3s;padding:24px}
+        .mobile-nav.open{right:0}
+        .mobile-nav-close{background:none;border:none;font-size:24px;cursor:pointer;float:right;margin-bottom:24px}
+        .mobile-nav ul{list-style:none}
+        .mobile-nav ul li{margin-bottom:8px}
+        .mobile-nav ul a{display:block;padding:12px;color:var(--text);text-decoration:none;font-weight:500;border-radius:8px;transition:background .2s}
+        .mobile-nav ul a:hover{background:var(--primary-light);color:var(--primary)}
+        .mobile-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.4);z-index:1999;display:none}
+        .mobile-overlay.open{display:block}
+    </style>
+</head>
+<body>
+
+    <!-- TOP BAR -->
+    <div class="topbar">
+        <div class="container">
+            <span class="en">One-Stop EV Solutions: Repair | Training | Components</span>
+            <span class="cn">新能源汽车一站式解决方案：维修 | 教学 | 配件</span>
+            <div>
+                <a href="https://wa.me/8613677310469" target="_blank">WhatsApp</a>
+                <a href="https://facebook.com/EVaaptec" target="_blank">Facebook</a>
+                <a href="mailto:sales@aaptec.com.cn">sales@aaptec.com.cn</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- HEADER -->
+    <header class="header" id="header">
+        <div class="container">
+            <a href="index.html" class="logo"><img src="images/logo.png" alt="AAPTEC"></a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="services.html"><span class="en">Service</span><span class="cn">服务</span></a></li>
+                    <li><a href="training.html"><span class="en">Training</span><span class="cn">课程</span></a></li>
+                    <li><a href="products.html"><span class="en">Products</span><span class="cn">产品</span></a></li>
+                    <li><a href="about.html"><span class="en">About Us</span><span class="cn">关于我们</span></a></li>
+                    <li><a href="contact.html"><span class="en">Contact</span><span class="cn">联系我们</span></a></li>
+                </ul>
+            </nav>
+            <div style="display:flex;align-items:center;gap:16px">
+                <button class="lang-toggle" onclick="toggleLang()">
+                    <span class="lang-btn active" id="lang-en">EN</span>
+                    <span class="lang-btn" id="lang-cn">CN</span>
+                </button>
+                <a href="contact.html" class="cta-btn en">Get a Quote</a>
+                <a href="contact.html" class="cta-btn cn">获取报价</a>
+                <button class="mobile-menu" onclick="toggleMobile()"><span></span><span></span><span></span></button>
+            </div>
+        </div>
+    </header>
+
+    <!-- MOBILE NAV -->
+    <div class="mobile-overlay" id="mobileOverlay" onclick="toggleMobile()"></div>
+    <div class="mobile-nav" id="mobileNav">
+        <button class="mobile-nav-close" onclick="toggleMobile()">&times;</button>
+        <ul>
+            <li><a href="services.html" onclick="toggleMobile()"><span class="en">Service</span><span class="cn">服务</span></a></li>
+            <li><a href="training.html" onclick="toggleMobile()"><span class="en">Training</span><span class="cn">课程</span></a></li>
+            <li><a href="products.html" onclick="toggleMobile()"><span class="en">Products</span><span class="cn">产品</span></a></li>
+            <li><a href="about.html" onclick="toggleMobile()"><span class="en">About Us</span><span class="cn">关于我们</span></a></li>
+            <li><a href="contact.html" onclick="toggleMobile()"><span class="en">Contact</span><span class="cn">联系我们</span></a></li>
+        </ul>
+    </div>
+
+    <!-- HERO -->
+    <section class="hero-training">
+        <div class="container">
+            <h1 class="en">EV Repair Training Courses<br><span>Chinese Only, English Instruction</span></h1>
+            <h1 class="cn">新能源车修理课程<br><span>仅中文，英文授课</span></h1>
+            <p class="en">Comprehensive, hands-on training led by OEM-experienced engineers — from zero knowledge to full mastery.</p>
+            <p class="cn">由具备主机厂经验的工程师授课的系统化实操培训——从零基础到全面精通。</p>
+        </div>
+    </section>
+
+    <!-- QUICK NAV -->
+    <nav class="course-nav">
+        <a href="#beginner"><span>🔋</span> <span class="en">Beginner</span><span class="cn">入门</span></a>
+        <a href="#advanced"><span>⚡</span> <span class="en">Advanced</span><span class="cn">进阶</span></a>
+        <a href="#master"><span>🏆</span> <span class="en">Master</span><span class="cn">大师</span></a>
+        <a href="#custom"><span>🎯</span> <span class="en">Custom</span><span class="cn">定制</span></a>
+    </nav>
+
+    <!-- COURSE 1: BEGINNER -->
+    <section class="course-detail" id="beginner">
+        <div class="container">
+            <div class="course-detail-inner fade-up">
+                <div class="course-detail-left">
+                    <div class="course-badge beginner">Beginner / 入门</div>
+                    <div class="course-detail-icon">🔋</div>
+                    <h2 class="en">0-Basic Course</h2>
+                    <h2 class="cn">零基础课程</h2>
+                    <div class="duration">
+                        <span>⏱</span>
+                        <span class="en">Duration: 2 Weeks</span>
+                        <span class="cn">学制：2 周</span>
+                    </div>
+                    <div class="description">
+                        <p class="en">This foundational course is designed for individuals with no prior EV knowledge. You will learn the core principles of electric vehicles, essential safety protocols, basic diagnostic procedures, battery fundamentals, and motor basics. By the end of the course, you will be able to safely perform basic EV inspections and identify common issues.</p>
+                        <p class="cn">本基础课程专为无新能源汽车经验的学员设计。课程涵盖电动汽车核心原理、基本安全规范、基础诊断流程、电池基础知识和电机基础。课程结束后，学员将能够独立进行基础新能源汽车检测并识别常见故障。</p>
+                    </div>
+                </div>
+                <div class="course-detail-right">
+                    <div class="topics-heading en">Key Topics</div>
+                    <div class="topics-heading cn">课程要点</div>
+                    <ul class="topics-list">
+                        <li class="en">EV fundamentals and architecture overview</li>
+                        <li class="cn">新能源汽车基本原理与架构概述</li>
+                        <li class="en">High-voltage safety protocols and PPE</li>
+                        <li class="cn">高压安全规范与个人防护</li>
+                        <li class="en">Basic diagnostic tool usage and interpretation</li>
+                        <li class="cn">基础诊断工具使用与结果解读</li>
+                        <li class="en">Battery pack structure and cell basics</li>
+                        <li class="cn">电池包结构与电芯基础</li>
+                        <li class="en">Electric motor types and operating principles</li>
+                        <li class="cn">电机类型与工作原理</li>
+                        <li class="en">Hands-on lab: basic vehicle inspection</li>
+                        <li class="cn">实操训练：基础车辆检测</li>
+                    </ul>
+                    <button class="btn-inquire" onclick="openModal('0-Basic Course / 零基础课程')">
+                        <span class="en">Inquire Now</span><span class="cn">立即咨询</span> →
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COURSE 2: ADVANCED -->
+    <section class="course-detail" id="advanced">
+        <div class="container">
+            <div class="course-detail-inner fade-up">
+                <div class="course-detail-left">
+                    <div class="course-badge advanced">Advanced / 进阶</div>
+                    <div class="course-detail-icon">⚡</div>
+                    <h2 class="en">Advanced Course</h2>
+                    <h2 class="cn">进阶学习</h2>
+                    <div class="duration">
+                        <span>⏱</span>
+                        <span class="en">Duration: 4 Weeks</span>
+                        <span class="cn">学制：4 周</span>
+                    </div>
+                    <div class="description">
+                        <p class="en">Building on the fundamentals, this course dives deep into battery management systems, motor control strategies, advanced diagnostic techniques, high-voltage system safety, and OBD programming. Ideal for technicians seeking to work independently on modern EV powertrains and electronic systems.</p>
+                        <p class="cn">在基础知识之上，本课程深入学习电池管理系统、电机控制策略、高级诊断技术、高压系统安全及OBD编程。适合希望独立维修新能源汽车动力总成和电子系统的技师。</p>
+                    </div>
+                </div>
+                <div class="course-detail-right">
+                    <div class="topics-heading en">Key Topics</div>
+                    <div class="topics-heading cn">课程要点</div>
+                    <ul class="topics-list">
+                        <li class="en">Battery Management System (BMS) architecture</li>
+                        <li class="cn">电池管理系统（BMS）架构</li>
+                        <li class="en">Motor control unit (MCU) diagnostics</li>
+                        <li class="cn">电机控制单元（MCU）诊断</li>
+                        <li class="en">Advanced OBD-II / UDS diagnostics and programming</li>
+                        <li class="cn">高级OBD-II / UDS诊断与编程</li>
+                        <li class="en">High-voltage interlock and isolation testing</li>
+                        <li class="cn">高压互锁与绝缘检测</li>
+                        <li class="en">Thermal management system troubleshooting</li>
+                        <li class="cn">热管理系统故障排查</li>
+                        <li class="en">Hands-on lab: full powertrain diagnosis</li>
+                        <li class="cn">实操训练：完整动力总成诊断</li>
+                    </ul>
+                    <button class="btn-inquire" onclick="openModal('Advanced Course / 进阶学习')">
+                        <span class="en">Inquire Now</span><span class="cn">立即咨询</span> →
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COURSE 3: MASTER -->
+    <section class="course-detail" id="master">
+        <div class="container">
+            <div class="course-detail-inner fade-up">
+                <div class="course-detail-left">
+                    <div class="course-badge master">Master / 大师</div>
+                    <div class="course-detail-icon">🏆</div>
+                    <h2 class="en">Master Course</h2>
+                    <h2 class="cn">大师课</h2>
+                    <div class="duration">
+                        <span>⏱</span>
+                        <span class="en">Duration: 8 Weeks</span>
+                        <span class="cn">学制：8 周</span>
+                    </div>
+                    <div class="description">
+                        <p class="en">The Master Course is the pinnacle of AAPTEC training. Covering BMS programming at the firmware level, component-level board repair, reverse engineering of EV control systems, comprehensive ECU diagnostics, and complete three-electric system mastery. Graduates emerge as elite EV technicians capable of the most complex repair work.</p>
+                        <p class="cn">大师课是AAPTEC培训体系的最高阶段。涵盖固件级BMS编程、元件级板级维修、新能源汽车控制系统逆向工程、全面ECU诊断及三电系统完整精通。毕业生将成为能够处理最复杂维修工作的精英新能源技师。</p>
+                    </div>
+                </div>
+                <div class="course-detail-right">
+                    <div class="topics-heading en">Key Topics</div>
+                    <div class="topics-heading cn">课程要点</div>
+                    <ul class="topics-list">
+                        <li class="en">BMS firmware programming and calibration</li>
+                        <li class="cn">BMS固件编程与标定</li>
+                        <li class="en">Component-level PCB repair and micro-soldering</li>
+                        <li class="cn">元件级PCB维修与微焊接</li>
+                        <li class="en">Reverse engineering of EV control modules</li>
+                        <li class="cn">新能源汽车控制模块逆向工程</li>
+                        <li class="en">Comprehensive ECU cloning and adaptation</li>
+                        <li class="cn">全面ECU克隆与匹配</li>
+                        <li class="en">Complete three-electric system integration</li>
+                        <li class="cn">三电系统完整集成</li>
+                        <li class="en">Master lab: real-world complex repair scenarios</li>
+                        <li class="cn">大师实操：真实复杂维修场景</li>
+                    </ul>
+                    <button class="btn-inquire" onclick="openModal('Master Course / 大师课')">
+                        <span class="en">Inquire Now</span><span class="cn">立即咨询</span> →
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COURSE 4: CUSTOM -->
+    <section class="course-detail" id="custom">
+        <div class="container">
+            <div class="course-detail-inner fade-up">
+                <div class="course-detail-left">
+                    <div class="course-badge custom">Custom / 定制</div>
+                    <div class="course-detail-icon">🎯</div>
+                    <h2 class="en">Customized Course</h2>
+                    <h2 class="cn">定制化课程</h2>
+                    <div class="duration">
+                        <span>⏱</span>
+                        <span class="en">Duration: Flexible</span>
+                        <span class="cn">学制：灵活安排</span>
+                    </div>
+                    <div class="description">
+                        <p class="en">Need training tailored specifically to your operation? Our Customized Course lets you choose the topics, schedule, and depth that match your exact needs. Delivered as one-on-one or small-group instruction, this option is perfect for workshop owners, fleet managers, and organizations seeking targeted EV training.</p>
+                        <p class="cn">需要量身定制的培训方案？定制化课程允许您自由选择课题、学制和深度。以一对一或小班授课形式进行，特别适合维修站老板、车队管理者及需要针对性新能源培训的机构。</p>
+                    </div>
+                </div>
+                <div class="course-detail-right">
+                    <div class="topics-heading en">What You Get</div>
+                    <div class="topics-heading cn">课程特色</div>
+                    <ul class="topics-list">
+                        <li class="en">Fully tailored curriculum to your specific needs</li>
+                        <li class="cn">完全根据您的需求定制课程内容</li>
+                        <li class="en">Flexible scheduling — choose your dates</li>
+                        <li class="cn">灵活安排——自选上课时间</li>
+                        <li class="en">Choice of topics from any course level</li>
+                        <li class="cn">可从任意课程级别自由选择课题</li>
+                        <li class="en">One-on-one instruction with senior engineers</li>
+                        <li class="cn">资深工程师一对一授课</li>
+                        <li class="en">Focus on your specific vehicle brands and models</li>
+                        <li class="cn">针对您特定车型品牌进行专项教学</li>
+                        <li class="en">Post-training technical support and consultation</li>
+                        <li class="cn">课后技术支持与咨询服务</li>
+                    </ul>
+                    <button class="btn-inquire" onclick="openModal('Customized Course / 定制化课程')">
+                        <span class="en">Inquire Now</span><span class="cn">立即咨询</span> →
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-banner">
+        <div class="container fade-up">
+            <h2 class="en">Ready to Master EV Repair?</h2>
+            <h2 class="cn">准备好精通新能源维修了吗？</h2>
+            <p class="en">Start your journey with AAPTEC — the largest EV training center in South-Central China.</p>
+            <p class="cn">加入AAPTEC——中国中南地区规模最大的新能源培训机构。</p>
+            <a href="#beginner" class="btn-white"><span class="en">Explore Courses</span><span class="cn">浏览课程</span> ↑</a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo"><img src="images/logo.png" alt="AAPTEC"></a>
+                    <p class="en">One-stop solutions for new energy vehicle repair, professional training, and high-quality EV components.</p>
+                    <p class="cn">新能源汽车维修、专业培训和高品质配件的一站式解决方案。</p>
+                </div>
+                <div>
+                    <h4 class="en">Services</h4><h4 class="cn">服务</h4>
+                    <ul class="footer-links">
+                        <li><a href="training.html" class="en">EV Repair Training</a><a href="training.html" class="cn">维修培训</a></li>
+                        <li><a href="services.html" class="en">Talent Dispatch</a><a href="services.html" class="cn">人才输送</a></li>
+                        <li><a href="services.html" class="en">Business Solutions</a><a href="services.html" class="cn">创业转型</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="en">Products</h4><h4 class="cn">产品</h4>
+                    <ul class="footer-links">
+                        <li><a href="products.html" class="en">Online Courses</a><a href="products.html" class="cn">线上课程</a></li>
+                        <li><a href="products.html" class="en">Equipment</a><a href="products.html" class="cn">教学设备</a></li>
+                        <li><a href="products.html" class="en">Materials</a><a href="products.html" class="cn">维修资料</a></li>
+                        <li><a href="products.html" class="en">Components</a><a href="products.html" class="cn">配件代采</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="en">Contact</h4><h4 class="cn">联系方式</h4>
+                    <ul class="footer-links">
+                        <li><a href="mailto:sales@aaptec.com.cn">sales@aaptec.com.cn</a></li>
+                        <li><a href="https://wa.me/8613677310469" target="_blank">WhatsApp: +86 136 7731 0469</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span class="en">&copy; 2026 AAPTEC. All rights reserved.</span>
+                <span class="cn">&copy; 2026 AAPTEC 版权所有</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- INQUIRY MODAL -->
+    <div class="modal-overlay" id="inquiryModal">
+        <div class="modal">
+            <div class="modal-header">
+                <div>
+                    <h3 class="en">Course Inquiry</h3>
+                    <h3 class="cn">课程咨询</h3>
+                    <p id="modalSubject" style="margin-top:4px;font-weight:600;color:var(--primary)"></p>
+                </div>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="inquiryForm" onsubmit="return false;">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Name *</label>
+                            <input type="text" name="name" required placeholder="Your name">
+                        </div>
+                        <div class="form-group">
+                            <label>Country *</label>
+                            <input type="text" name="country" required placeholder="Your country">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Email *</label>
+                            <input type="email" name="email" required placeholder="your@email.com">
+                        </div>
+                        <div class="form-group">
+                            <label>WhatsApp</label>
+                            <input type="tel" name="whatsapp" placeholder="+1 234 567 890">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Subject *</label>
+                        <select name="subject" id="subjectSelect" required>
+                            <option value="" disabled selected>Select a course</option>
+                            <option value="0-Basic Course / 零基础课程">0-Basic Course / 零基础课程</option>
+                            <option value="Advanced Course / 进阶学习">Advanced Course / 进阶学习</option>
+                            <option value="Master Course / 大师课">Master Course / 大师课</option>
+                            <option value="Customized Course / 定制化课程">Customized Course / 定制化课程</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Inquiry *</label>
+                        <textarea name="inquiry" id="inquiryText" required maxlength="250" placeholder="Tell us what you'd like to know..."></textarea>
+                        <div class="char-counter" id="charCounter">0 / 250</div>
+                    </div>
+                    <button type="submit" class="form-submit" onclick="submitInquiry()">
+                        <span class="en">Send Inquiry</span><span class="cn">发送咨询</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        /* Language Toggle */
+        let isCn=false;
+        function toggleLang(){isCn=!isCn;document.body.classList.toggle('cn-mode',isCn);document.getElementById('lang-en').classList.toggle('active',!isCn);document.getElementById('lang-cn').classList.toggle('active',isCn);document.documentElement.lang=isCn?'zh-CN':'en'}
+
+        /* Header scroll effect */
+        window.addEventListener('scroll',()=>{document.getElementById('header').classList.toggle('scrolled',window.scrollY>20)});
+
+        /* Mobile nav */
+        function toggleMobile(){document.getElementById('mobileNav').classList.toggle('open');document.getElementById('mobileOverlay').classList.toggle('open')}
+
+        /* Smooth scroll for anchor links */
+        document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',function(e){e.preventDefault();const t=document.querySelector(this.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth',block:'start'})})});
+
+        /* Intersection Observer for fade-up */
+        const observer=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')})},{threshold:0.1});
+        document.querySelectorAll('.fade-up').forEach(el=>observer.observe(el));
+
+        /* Modal */
+        function openModal(courseName){
+            document.getElementById('modalSubject').textContent=courseName;
+            document.getElementById('subjectSelect').value=courseName;
+            document.getElementById('inquiryModal').classList.add('open');
+            document.body.style.overflow='hidden';
+        }
+        function closeModal(){
+            document.getElementById('inquiryModal').classList.remove('open');
+            document.body.style.overflow='';
+        }
+        document.getElementById('inquiryModal').addEventListener('click',function(e){if(e.target===this)closeModal()});
+
+        /* Character counter */
+        document.getElementById('inquiryText').addEventListener('input',function(){
+            const counter=document.getElementById('charCounter');
+            const len=this.value.length;
+            counter.textContent=len+' / 250';
+            counter.classList.toggle('limit',len>=250);
+        });
+
+        /* Form submission placeholder */
+        function submitInquiry(){
+            const form=document.getElementById('inquiryForm');
+            if(!form.checkValidity()){form.reportValidity();return}
+            alert('Thank you! Your inquiry has been submitted. We will contact you shortly.\n\n感谢您的咨询！我们会尽快与您联系。');
+            form.reset();
+            document.getElementById('charCounter').textContent='0 / 250';
+            document.getElementById('charCounter').classList.remove('limit');
+            closeModal();
+        }
+    </script>
+</body>
+</html>

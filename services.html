@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services - AAPTEC</title>
+    <meta name="description" content="AAPTEC offers professional EV repair training, technician talent dispatch, and end-to-end business transformation solutions for the new energy vehicle industry.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        :root{
+            --primary:#0045A5;
+            --primary-dark:#003580;
+            --primary-deep:#07192F;
+            --primary-light:#E8F4FD;
+            --accent:#00A3FF;
+            --success:#059669;
+            --white:#FFFFFF;
+            --text:#303030;
+            --text-light:#6B7280;
+            --bg:#F8FAFC;
+            --border:#E5E7EB;
+            --shadow:0 18px 50px rgba(15,35,70,0.10);
+            --gold:#F59E0B;
+        }
+        html{scroll-behavior:smooth;scroll-padding-top:92px}
+        body{font-family:'Inter',sans-serif;color:var(--text);line-height:1.6;overflow-x:hidden}
+
+        /* TOP BAR */
+        .topbar{background:var(--primary-dark);color:rgba(255,255,255,0.9);font-size:13px;padding:8px 0}
+        .topbar .container{display:flex;justify-content:space-between;align-items:center}
+        .topbar a{color:rgba(255,255,255,0.9);text-decoration:none;margin-left:16px;transition:color .2s}
+        .topbar a:hover{color:#fff}
+
+        /* HEADER */
+        .header{background:rgba(255,255,255,0.96);backdrop-filter:blur(18px);box-shadow:0 1px 3px rgba(0,0,0,0.08);position:sticky;top:0;z-index:1000;transition:box-shadow .3s}
+        .header.scrolled{box-shadow:0 4px 20px rgba(0,0,0,0.12)}
+        .header .container{display:flex;justify-content:space-between;align-items:center;height:80px}
+        .logo{text-decoration:none;display:flex;align-items:center}
+        .logo img{height:48px;width:auto}
+        .nav-links{display:flex;align-items:center;gap:32px;list-style:none}
+        .nav-links a{text-decoration:none;color:var(--text);font-weight:500;font-size:15px;transition:color .2s;position:relative}
+        .nav-links a:hover{color:var(--primary)}
+        .nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--primary);transition:width .3s}
+        .nav-links a:hover::after{width:100%}
+        .lang-toggle{display:flex;align-items:center;background:var(--primary-light);border-radius:20px;padding:3px;cursor:pointer;border:none}
+        .lang-btn{padding:5px 14px;border-radius:18px;font-size:13px;font-weight:600;border:none;cursor:pointer;transition:all .2s;font-family:'Inter',sans-serif}
+        .lang-btn.active{background:var(--primary);color:#fff}
+        .lang-btn:not(.active){background:transparent;color:var(--primary)}
+        .cta-btn{background:var(--primary);color:#fff;padding:10px 24px;border-radius:8px;text-decoration:none;font-weight:600;font-size:14px;transition:all .2s;border:none;cursor:pointer;display:inline-flex;align-items:center;gap:6px}
+        .cta-btn:hover{background:var(--primary-dark);transform:translateY(-1px);box-shadow:0 4px 12px rgba(0,69,165,0.3)}
+        .mobile-menu{display:none;background:none;border:none;cursor:pointer;padding:8px}
+        .mobile-menu span{display:block;width:24px;height:2px;background:var(--text);margin:5px 0;transition:all .3s}
+
+        .container{max-width:1200px;margin:0 auto;padding:0 24px}
+
+        /* HERO - SUB PAGE (smaller) */
+        .hero-sub{background:linear-gradient(135deg,var(--primary-deep) 0%,var(--primary-dark) 45%,var(--primary) 100%);color:#fff;padding:56px 0 64px;text-align:center;position:relative;overflow:hidden}
+        .hero-sub::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px);background-size:52px 52px;opacity:.65}
+        .hero-sub::after{content:'';position:absolute;right:4%;bottom:-60px;width:42%;height:140px;background:rgba(0,163,255,.18);filter:blur(70px)}
+        .hero-sub .container{position:relative;z-index:1}
+        .hero-sub h1{font-family:'Plus Jakarta Sans',sans-serif;font-size:40px;font-weight:800;line-height:1.15;margin-bottom:12px}
+        .hero-sub h1 span{color:#A7D6FF}
+        .hero-sub p{font-size:17px;color:rgba(255,255,255,0.8);max-width:600px;margin:0 auto}
+        .breadcrumb{font-size:13px;color:rgba(255,255,255,0.6);margin-bottom:18px}
+        .breadcrumb a{color:rgba(255,255,255,0.7);text-decoration:none;transition:color .2s}
+        .breadcrumb a:hover{color:#fff}
+
+        /* SECTIONS */
+        .section{padding:80px 0}
+        .section-header{text-align:center;margin-bottom:50px}
+        .section-tag{display:inline-block;background:var(--primary-light);color:var(--primary);padding:6px 16px;border-radius:20px;font-size:13px;font-weight:600;margin-bottom:14px;text-transform:uppercase;letter-spacing:0.5px}
+        .section-header h2{font-family:'Plus Jakarta Sans',sans-serif;font-size:36px;font-weight:700;color:var(--text);margin-bottom:14px}
+        .section-header p{font-size:17px;color:var(--text-light);max-width:600px;margin:0 auto}
+
+        /* SERVICE DETAIL SECTION */
+        .service-detail{padding:80px 0}
+        .service-detail:nth-child(odd){background:var(--bg)}
+        .service-detail:nth-child(even){background:var(--white)}
+        .service-row{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+        .service-row.reverse{direction:rtl}
+        .service-row.reverse > *{direction:ltr}
+        .service-info .section-tag{margin-bottom:18px}
+        .service-info h2{font-family:'Plus Jakarta Sans',sans-serif;font-size:32px;font-weight:700;color:var(--text);margin-bottom:16px;line-height:1.25}
+        .service-info h2 span{color:var(--primary)}
+        .service-info > p{font-size:15px;color:var(--text-light);line-height:1.8;margin-bottom:24px}
+        .service-features{list-style:none;margin-bottom:24px}
+        .service-features li{display:flex;align-items:flex-start;gap:12px;padding:10px 0;font-size:14px;color:var(--text);line-height:1.6}
+        .service-features li::before{content:'';width:22px;height:22px;background:var(--primary);border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;margin-top:1px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:center}
+        .service-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
+        .service-tag{display:inline-block;padding:6px 14px;border-radius:999px;font-size:12px;font-weight:600;background:var(--primary-light);color:var(--primary)}
+        .service-visual{border-radius:16px;overflow:hidden;position:relative}
+        .service-visual-inner{border-radius:16px;height:420px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;font-weight:600;position:relative;overflow:hidden}
+        .service-visual-inner .service-visual-icon{font-size:64px;margin-bottom:16px;filter:drop-shadow(0 4px 12px rgba(0,0,0,0.2))}
+        .service-visual-inner .service-visual-label{font-family:'Plus Jakarta Sans',sans-serif;font-size:20px;font-weight:700;opacity:0.9;letter-spacing:0.5px}
+        .service-visual-inner::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(0,0,0,0.2) 100%)}
+        .visual-training{background:linear-gradient(135deg,#07192F 0%,#0045A5 60%,#00A3FF 100%)}
+        .visual-dispatch{background:linear-gradient(135deg,#003580 0%,#0066cc 50%,#00A3FF 100%)}
+        .visual-solution{background:linear-gradient(135deg,#1a1a2e 0%,#16213e 50%,#0045A5 100%)}
+
+        /* CTA */
+        .cta-banner{background:linear-gradient(135deg,var(--primary-dark),var(--primary));padding:60px 0;text-align:center;color:#fff}
+        .cta-banner h2{font-family:'Plus Jakarta Sans',sans-serif;font-size:32px;font-weight:700;margin-bottom:14px}
+        .cta-banner p{font-size:17px;color:rgba(255,255,255,0.85);margin-bottom:28px}
+        .btn-white{background:#fff;color:var(--primary);padding:14px 32px;border-radius:10px;text-decoration:none;font-weight:600;font-size:16px;transition:all .2s;display:inline-flex;align-items:center;gap:8px}
+        .btn-white:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,0.15)}
+
+        /* FOOTER */
+        .footer{background:var(--text);color:rgba(255,255,255,0.7);padding:60px 0 0}
+        .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px}
+        .footer-brand .logo{margin-bottom:16px;display:inline-flex}
+        .footer-brand .logo img{height:40px}
+        .footer-brand p{font-size:14px;line-height:1.7;color:rgba(255,255,255,0.6);margin-top:12px}
+        .footer h4{color:#fff;font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;font-weight:700;margin-bottom:18px}
+        .footer-links{list-style:none}
+        .footer-links li{margin-bottom:10px}
+        .footer-links a{color:rgba(255,255,255,0.6);text-decoration:none;font-size:14px;transition:color .2s}
+        .footer-links a:hover{color:#fff}
+        .footer-bottom{border-top:1px solid rgba(255,255,255,0.1);padding:20px 0;text-align:center;font-size:13px;color:rgba(255,255,255,0.4)}
+
+        /* LANGUAGE */
+        .cn{display:none!important}
+        body.cn-mode .en{display:none!important}
+        body.cn-mode span.cn,body.cn-mode a.cn{display:inline!important}
+        body.cn-mode div.cn,body.cn-mode p.cn,body.cn-mode h1.cn,body.cn-mode h2.cn,body.cn-mode h3.cn,body.cn-mode h4.cn{display:block!important}
+
+        /* ANIMATIONS */
+        .fade-up{opacity:1;transform:none;transition:opacity .45s,transform .45s}
+
+        /* RESPONSIVE */
+        @media(max-width:968px){
+            .service-row{grid-template-columns:1fr;gap:36px}
+            .service-row.reverse{direction:ltr}
+            .footer-grid{grid-template-columns:1fr 1fr}
+            .nav-links{display:none}
+            .mobile-menu{display:block}
+            .hero-sub h1{font-size:32px}
+            .service-visual-inner{height:300px}
+        }
+        @media(max-width:640px){
+            .hero-sub{padding:44px 0 50px}
+            .hero-sub h1{font-size:26px}
+            .footer-grid{grid-template-columns:1fr}
+            .topbar .container{flex-direction:column;gap:4px}
+            .header .container{height:66px}
+            .logo img{height:36px}
+            .cta-btn{display:none}
+            .service-detail{padding:56px 0}
+            .service-info h2{font-size:26px}
+            .section-header h2{font-size:28px}
+            .cta-banner h2{font-size:26px}
+        }
+
+        /* MOBILE NAV */
+        .mobile-nav{position:fixed;top:0;right:-100%;width:300px;height:100vh;background:var(--white);z-index:2000;box-shadow:-4px 0 20px rgba(0,0,0,0.1);transition:right .3s;padding:24px}
+        .mobile-nav.open{right:0}
+        .mobile-nav-close{background:none;border:none;font-size:24px;cursor:pointer;float:right;margin-bottom:24px}
+        .mobile-nav ul{list-style:none}
+        .mobile-nav ul li{margin-bottom:8px}
+        .mobile-nav ul a{display:block;padding:12px;color:var(--text);text-decoration:none;font-weight:500;border-radius:8px;transition:background .2s}
+        .mobile-nav ul a:hover{background:var(--primary-light);color:var(--primary)}
+        .mobile-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.4);z-index:1999;display:none}
+        .mobile-overlay.open{display:block}
+    </style>
+</head>
+<body>
+
+    <!-- TOP BAR -->
+    <div class="topbar">
+        <div class="container">
+            <span class="en">One-Stop EV Solutions: Repair | Training | Components</span>
+            <span class="cn">新能源汽车一站式解决方案：维修 | 教学 | 配件</span>
+            <div>
+                <a href="https://wa.me/8613677310469" target="_blank">WhatsApp</a>
+                <a href="https://facebook.com/EVaaptec" target="_blank">Facebook</a>
+                <a href="mailto:sales@aaptec.com.cn">sales@aaptec.com.cn</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- HEADER -->
+    <header class="header" id="header">
+        <div class="container">
+            <a href="index.html" class="logo"><img src="images/logo.png" alt="AAPTEC"></a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="services.html"><span class="en">Service</span><span class="cn">服务</span></a></li>
+                    <li><a href="training.html"><span class="en">Training</span><span class="cn">课程</span></a></li>
+                    <li><a href="products.html"><span class="en">Products</span><span class="cn">产品</span></a></li>
+                    <li><a href="about.html"><span class="en">About Us</span><span class="cn">关于我们</span></a></li>
+                    <li><a href="contact.html"><span class="en">Contact</span><span class="cn">联系我们</span></a></li>
+                </ul>
+            </nav>
+            <div style="display:flex;align-items:center;gap:16px">
+                <button class="lang-toggle" onclick="toggleLang()">
+                    <span class="lang-btn active" id="lang-en">EN</span>
+                    <span class="lang-btn" id="lang-cn">CN</span>
+                </button>
+                <a href="contact.html" class="cta-btn en">Get a Quote</a>
+                <a href="contact.html" class="cta-btn cn">获取报价</a>
+                <button class="mobile-menu" onclick="toggleMobile()"><span></span><span></span><span></span></button>
+            </div>
+        </div>
+    </header>
+
+    <!-- MOBILE NAV -->
+    <div class="mobile-overlay" id="mobileOverlay" onclick="toggleMobile()"></div>
+    <div class="mobile-nav" id="mobileNav">
+        <button class="mobile-nav-close" onclick="toggleMobile()">&times;</button>
+        <ul>
+            <li><a href="services.html" onclick="toggleMobile()"><span class="en">Service</span><span class="cn">服务</span></a></li>
+            <li><a href="training.html" onclick="toggleMobile()"><span class="en">Training</span><span class="cn">课程</span></a></li>
+            <li><a href="products.html" onclick="toggleMobile()"><span class="en">Products</span><span class="cn">产品</span></a></li>
+            <li><a href="about.html" onclick="toggleMobile()"><span class="en">About Us</span><span class="cn">关于我们</span></a></li>
+            <li><a href="contact.html" onclick="toggleMobile()"><span class="en">Contact</span><span class="cn">联系我们</span></a></li>
+        </ul>
+    </div>
+
+    <!-- HERO SUB -->
+    <section class="hero-sub">
+        <div class="container">
+            <div class="breadcrumb"><a href="index.html">Home</a> / <span class="en">Services</span><span class="cn">服务</span></div>
+            <h1 class="en">Our <span>Services</span></h1>
+            <h1 class="cn">我们的<span>服务</span></h1>
+            <p class="en">Comprehensive solutions for the new energy vehicle industry — from training to talent and business transformation.</p>
+            <p class="cn">面向新能源汽车行业的全方位解决方案——从培训、人才输送，到创业转型。</p>
+        </div>
+    </section>
+
+    <!-- SERVICE 1: EV Repair Training -->
+    <section class="service-detail" id="training">
+        <div class="container">
+            <div class="service-row fade-up">
+                <div class="service-info">
+                    <div class="section-tag en">Service 01</div>
+                    <div class="section-tag cn">服务 01</div>
+                    <h2 class="en">EV Repair <span>Training</span></h2>
+                    <h2 class="cn">新能源车<span>维修培训</span></h2>
+                    <p class="en">Chinese Only, English Instruction. Our structured courses take you from beginner to master level, taught by OEM-experienced engineers with deep expertise in battery, motor, and electronic control systems.</p>
+                    <p class="cn">中文教学，英文授课。从零基础到大师级的系统化课程，由具备主机厂经验的工程师讲授，涵盖电池、电机和电子控制系统。</p>
+                    <ul class="service-features">
+                        <li class="en">Structured curriculum from zero-basics to master-level expertise</li>
+                        <li class="cn">从零基础到大师级的系统化课程体系</li>
+                        <li class="en">English instruction delivered by OEM-experienced engineers</li>
+                        <li class="cn">由具备主机厂经验的工程师英文授课</li>
+                        <li class="en">Covering battery systems, motor control, and electronic control units</li>
+                        <li class="cn">覆盖电池系统、电机控制和电子控制单元</li>
+                        <li class="en">Hands-on practice with real EV diagnostic tools and equipment</li>
+                        <li class="cn">使用真实新能源诊断工具和设备进行实操练习</li>
+                    </ul>
+                    <div class="service-tags">
+                        <span class="service-tag en">Beginner to Master</span>
+                        <span class="service-tag cn">从入门到大师</span>
+                        <span class="service-tag en">English Instruction</span>
+                        <span class="service-tag cn">英文授课</span>
+                        <span class="service-tag en">Hands-on Practice</span>
+                        <span class="service-tag cn">实操练习</span>
+                    </div>
+                </div>
+                <div class="service-visual">
+                    <div class="service-visual-inner visual-training">
+                        <span class="service-visual-icon">&#128295;</span>
+                        <span class="service-visual-label en">EV Repair Training Center</span>
+                        <span class="service-visual-label cn">新能源维修培训中心</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICE 2: EV Technician Talent Dispatch -->
+    <section class="service-detail" id="talent">
+        <div class="container">
+            <div class="service-row reverse fade-up">
+                <div class="service-info">
+                    <div class="section-tag en">Service 02</div>
+                    <div class="section-tag cn">服务 02</div>
+                    <h2 class="en">EV Technician <span>Talent Dispatch</span></h2>
+                    <h2 class="cn">新能源维修<span>人才输送</span></h2>
+                    <p class="en">We train and certify skilled EV repair personnel, then match them with workshops and dealerships worldwide. Our professional certification program ensures every technician meets the highest industry standards.</p>
+                    <p class="cn">我们培训并认证优秀的新能源维修人才，为全球维修站和经销商精准匹配。专业认证体系确保每位技师达到最高行业标准。</p>
+                    <ul class="service-features">
+                        <li class="en">Train and certify skilled EV repair technicians to industry standards</li>
+                        <li class="cn">按行业标准培训并认证新能源维修技师</li>
+                        <li class="en">Match certified technicians with workshops and dealerships globally</li>
+                        <li class="cn">为全球维修站和经销商精准匹配认证技师</li>
+                        <li class="en">Professional certification recognized across the industry</li>
+                        <li class="cn">行业认可的专业认证资质</li>
+                        <li class="en">Comprehensive career support and global placement network</li>
+                        <li class="cn">全面的职业支持和全球就业网络</li>
+                    </ul>
+                    <div class="service-tags">
+                        <span class="service-tag en">Certified Technicians</span>
+                        <span class="service-tag cn">认证技师</span>
+                        <span class="service-tag en">Global Placement</span>
+                        <span class="service-tag cn">全球就业</span>
+                        <span class="service-tag en">Career Support</span>
+                        <span class="service-tag cn">职业支持</span>
+                    </div>
+                </div>
+                <div class="service-visual">
+                    <div class="service-visual-inner visual-dispatch">
+                        <span class="service-visual-icon">&#128101;</span>
+                        <span class="service-visual-label en">Global Technician Network</span>
+                        <span class="service-visual-label cn">全球技师网络</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICE 3: Teaching & Business Transformation Solutions -->
+    <section class="service-detail" id="solutions">
+        <div class="container">
+            <div class="service-row fade-up">
+                <div class="service-info">
+                    <div class="section-tag en">Service 03</div>
+                    <div class="section-tag cn">服务 03</div>
+                    <h2 class="en">Teaching & Business <span>Transformation Solutions</span></h2>
+                    <h2 class="cn">教学 & 创业<span>转型方案</span></h2>
+                    <p class="en">End-to-end solutions for auto service shops transitioning to EV. We handle everything from curriculum design and equipment sourcing to operation setup and business planning — a complete turnkey package.</p>
+                    <p class="cn">面向汽车服务门店电动化转型的端到端解决方案。从课程设计、设备采购到运营搭建、商业规划——一站式整套服务。</p>
+                    <ul class="service-features">
+                        <li class="en">Complete curriculum design tailored to your local market needs</li>
+                        <li class="cn">根据当地市场需求量身定制完整课程体系</li>
+                        <li class="en">Equipment sourcing — diagnostic tools, training rigs, and workshop setup</li>
+                        <li class="cn">设备采购——诊断工具、实训台架和车间搭建</li>
+                        <li class="en">Operation setup including workflow design and staff training</li>
+                        <li class="cn">运营搭建，包括工作流程设计和员工培训</li>
+                        <li class="en">Business planning support from feasibility study to launch</li>
+                        <li class="cn">从可行性研究到开业的商业规划支持</li>
+                    </ul>
+                    <div class="service-tags">
+                        <span class="service-tag en">Turnkey Solution</span>
+                        <span class="service-tag cn">整套方案</span>
+                        <span class="service-tag en">Startup Support</span>
+                        <span class="service-tag cn">创业支持</span>
+                        <span class="service-tag en">Operation Planning</span>
+                        <span class="service-tag cn">运营规划</span>
+                    </div>
+                </div>
+                <div class="service-visual">
+                    <div class="service-visual-inner visual-solution">
+                        <span class="service-visual-icon">&#127919;</span>
+                        <span class="service-visual-label en">Business Transformation Hub</span>
+                        <span class="service-visual-label cn">创业转型中心</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-banner">
+        <div class="container fade-up">
+            <h2 class="en">Ready to Start Your EV Journey?</h2>
+            <h2 class="cn">准备好开启您的新能源事业了吗？</h2>
+            <p class="en">Contact us today to discuss which service is right for you.</p>
+            <p class="cn">立即联系我们，了解最适合您的服务方案。</p>
+            <a href="contact.html" class="btn-white"><span class="en">Get in Touch</span><span class="cn">联系我们</span> →</a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo"><img src="images/logo.png" alt="AAPTEC"></a>
+                    <p class="en">One-stop solutions for new energy vehicle repair, professional training, and high-quality EV components.</p>
+                    <p class="cn">新能源汽车维修、专业培训和高品质配件的一站式解决方案。</p>
+                </div>
+                <div>
+                    <h4 class="en">Services</h4><h4 class="cn">服务</h4>
+                    <ul class="footer-links">
+                        <li><a href="training.html" class="en">EV Repair Training</a><a href="training.html" class="cn">维修培训</a></li>
+                        <li><a href="services.html#talent" class="en">Talent Dispatch</a><a href="services.html#talent" class="cn">人才输送</a></li>
+                        <li><a href="services.html#solutions" class="en">Business Solutions</a><a href="services.html#solutions" class="cn">创业转型</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="en">Products</h4><h4 class="cn">产品</h4>
+                    <ul class="footer-links">
+                        <li><a href="products.html" class="en">Online Courses</a><a href="products.html" class="cn">线上课程</a></li>
+                        <li><a href="products.html" class="en">Equipment</a><a href="products.html" class="cn">教学设备</a></li>
+                        <li><a href="products.html" class="en">Materials</a><a href="products.html" class="cn">维修资料</a></li>
+                        <li><a href="products.html" class="en">Components</a><a href="products.html" class="cn">配件代采</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="en">Contact</h4><h4 class="cn">联系方式</h4>
+                    <ul class="footer-links">
+                        <li><a href="mailto:sales@aaptec.com.cn">sales@aaptec.com.cn</a></li>
+                        <li><a href="https://wa.me/8613677310469" target="_blank">WhatsApp: +86 136 7731 0469</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span class="en">&copy; 2026 AAPTEC. All rights reserved.</span>
+                <span class="cn">&copy; 2026 AAPTEC 版权所有</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let isCn=false;
+        function toggleLang(){isCn=!isCn;document.body.classList.toggle('cn-mode',isCn);document.getElementById('lang-en').classList.toggle('active',!isCn);document.getElementById('lang-cn').classList.toggle('active',isCn);document.documentElement.lang=isCn?'zh-CN':'en'}
+        window.addEventListener('scroll',()=>{document.getElementById('header').classList.toggle('scrolled',window.scrollY>20)});
+        function toggleMobile(){document.getElementById('mobileNav').classList.toggle('open');document.getElementById('mobileOverlay').classList.toggle('open')}
+        const observer=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')})},{threshold:0.1});
+        document.querySelectorAll('.fade-up').forEach(el=>observer.observe(el));
+    </script>
+</body>
+</html>
