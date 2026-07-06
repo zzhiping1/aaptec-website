@@ -38,7 +38,7 @@
         .header.scrolled{box-shadow:0 4px 20px rgba(0,0,0,0.12)}
         .header .container{display:flex;justify-content:space-between;align-items:center;height:80px}
         .logo{text-decoration:none;display:flex;align-items:center}
-        .logo img{height:44px;width:auto}
+        .logo img{height:40px;width:auto}
         .nav-links{display:flex;align-items:center;gap:32px;list-style:none}
         .nav-links a{text-decoration:none;color:var(--text);font-weight:500;font-size:15px;transition:color .2s;position:relative}
         .nav-links a:hover{color:var(--primary)}
@@ -92,6 +92,7 @@
         .service-card:hover .service-icon{background:var(--primary);transform:translateY(-3px)}
         .service-card h3{font-family:'Plus Jakarta Sans',sans-serif;font-size:20px;font-weight:700;margin-bottom:10px}
         .service-card p{font-size:14px;color:var(--text-light);line-height:1.7;margin-bottom:16px}
+        .service-img{width:100%;height:160px;background-size:cover;background-position:center;border-radius:10px;margin-bottom:18px}
         .service-card .arrow{color:var(--primary);font-weight:600;font-size:14px;display:inline-flex;align-items:center;gap:4px;transition:gap .3s}
         .service-card:hover .arrow{gap:10px}
 
@@ -99,11 +100,7 @@
         .product-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
         .product-card{background:var(--white);border:1px solid var(--border);border-radius:12px;overflow:hidden;transition:all .3s;cursor:pointer;text-decoration:none;color:var(--text);display:block}
         .product-card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
-        .product-visual{height:140px;display:flex;align-items:center;justify-content:center;font-size:42px}
-        .product-card:nth-child(1) .product-visual{background:linear-gradient(135deg,#07192F,#0045A5)}
-        .product-card:nth-child(2) .product-visual{background:linear-gradient(135deg,#003580,#00A3FF)}
-        .product-card:nth-child(3) .product-visual{background:linear-gradient(135deg,#1a1a2e,#16213e)}
-        .product-card:nth-child(4) .product-visual{background:linear-gradient(135deg,#0045A5,#059669)}
+        .product-visual{height:160px;background-size:cover;background-position:center;border-radius:12px 12px 0 0}
         .product-content{padding:20px}
         .product-content h3{font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;font-weight:700;margin-bottom:6px}
         .product-content p{font-size:13px;color:var(--text-light);line-height:1.6}
@@ -237,7 +234,7 @@
     <section class="hero">
         <div class="container">
             <div class="hero-logo">
-                <img src="images/logo-hero-white.png" alt="AAPTEC" style="height:180px">
+                <img src="images/logo-hero-white.png" alt="AAPTEC" style="height:150px">
             </div>
             <div class="hero-badge en">New Energy Vehicle Specialist</div>
             <div class="hero-badge cn">新能源汽车专业服务</div>
@@ -282,7 +279,7 @@
             </div>
             <div class="service-grid">
                 <a href="training.html" class="service-card fade-up">
-                    <div class="service-icon">🔧</div>
+                    <div class="service-img" style="background-image:url('images/svc-training.jpg')"></div>
                     <h3 class="en">EV Repair Training</h3>
                     <h3 class="cn">新能源车修理课程</h3>
                     <p class="en">Structured EV repair courses from beginner to master level, delivered in English by OEM-experienced engineers.</p>
@@ -291,7 +288,7 @@
                     <span class="arrow cn">了解详情 →</span>
                 </a>
                 <a href="services.html" class="service-card fade-up">
-                    <div class="service-icon">👥</div>
+                    <div class="service-img" style="background-image:url('images/svc-talent.jpg')"></div>
                     <h3 class="en">EV Technician Talent Dispatch</h3>
                     <h3 class="cn">新能源车维修人才输送</h3>
                     <p class="en">Professional EV technicians trained, certified, and matched with workshops worldwide.</p>
@@ -300,7 +297,7 @@
                     <span class="arrow cn">了解详情 →</span>
                 </a>
                 <a href="services.html" class="service-card fade-up">
-                    <div class="service-icon">🎯</div>
+                    <div class="service-img" style="background-image:url('images/svc-business.jpg')"></div>
                     <h3 class="en">Business Transformation</h3>
                     <h3 class="cn">教学&创业转型方案</h3>
                     <p class="en">End-to-end solutions for auto service shops transitioning to EV business.</p>
@@ -325,7 +322,7 @@
             </div>
             <div class="product-grid">
                 <a href="products.html#online" class="product-card fade-up">
-                    <div class="product-visual">💻</div>
+                    <div class="product-visual" style="background-image:url('images/prod-online.jpg')"></div>
                     <div class="product-content">
                         <h3 class="en">Online Courses</h3>
                         <h3 class="cn">线上课程</h3>
@@ -334,7 +331,7 @@
                     </div>
                 </a>
                 <a href="products.html#equipment" class="product-card fade-up">
-                    <div class="product-visual">🔧</div>
+                    <div class="product-visual" style="background-image:url('images/prod-equipment.jpg')"></div>
                     <div class="product-content">
                         <h3 class="en">Teaching Equipment</h3>
                         <h3 class="cn">教学仪器和设备</h3>
@@ -343,7 +340,7 @@
                     </div>
                 </a>
                 <a href="products.html#materials" class="product-card fade-up">
-                    <div class="product-visual">📚</div>
+                    <div class="product-visual" style="background-image:url('images/prod-materials.jpg')"></div>
                     <div class="product-content">
                         <h3 class="en">Repair Materials</h3>
                         <h3 class="cn">电车维修资料</h3>
@@ -352,7 +349,7 @@
                     </div>
                 </a>
                 <a href="products.html#components" class="product-card fade-up">
-                    <div class="product-visual">📦</div>
+                    <div class="product-visual" style="background-image:url('images/prod-components.jpg')"></div>
                     <div class="product-content">
                         <h3 class="en">Component Sourcing</h3>
                         <h3 class="cn">配件代采</h3>

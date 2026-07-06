@@ -87,9 +87,7 @@
         .product-detail .container{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
         .product-detail.reverse .container{direction:rtl}
         .product-detail.reverse .container > *{direction:ltr}
-        .product-detail-visual{border-radius:18px;padding:50px 40px;display:flex;align-items:center;justify-content:center;min-height:360px;position:relative;overflow:hidden}
-        .product-detail-visual::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,0.06) 1px,transparent 1px),linear-gradient(225deg,rgba(255,255,255,0.04) 1px,transparent 1px);background-size:30px 30px;opacity:.5}
-        .product-detail-visual .icon{font-size:100px;filter:drop-shadow(0 10px 30px rgba(0,0,0,0.2));position:relative;z-index:1}
+        .product-detail-visual{border-radius:18px;min-height:360px;background-size:cover;background-position:center}
         .product-detail-info h2{font-family:'Plus Jakarta Sans',sans-serif;font-size:32px;font-weight:700;margin-bottom:10px}
         .product-detail-info .subtitle{font-size:17px;color:var(--text-light);line-height:1.7;margin-bottom:24px}
         .feature-list{list-style:none;margin-bottom:28px;display:grid;grid-template-columns:1fr 1fr;gap:10px}
@@ -257,9 +255,7 @@
     <!-- 1. ONLINE COURSES -->
     <section class="product-detail" id="online">
         <div class="container">
-            <div class="product-detail-visual" style="background:linear-gradient(135deg,#07192F,#0045A5)">
-                <div class="icon">💻</div>
-            </div>
+            <div class="product-detail-visual" style="background-image:url('images/detail-online.jpg')"></div>
             <div class="product-detail-info">
                 <h2 class="en">Online Courses</h2>
                 <h2 class="cn">线上课程</h2>
@@ -284,9 +280,7 @@
     <!-- 2. TEACHING EQUIPMENT -->
     <section class="product-detail reverse" id="equipment">
         <div class="container">
-            <div class="product-detail-visual" style="background:linear-gradient(135deg,#003580,#00A3FF)">
-                <div class="icon">🔧</div>
-            </div>
+            <div class="product-detail-visual" style="background-image:url('images/detail-equipment.jpg')"></div>
             <div class="product-detail-info">
                 <h2 class="en">Teaching Instruments & Equipment</h2>
                 <h2 class="cn">教学仪器和设备</h2>
@@ -310,9 +304,7 @@
     <!-- 3. EV REPAIR MATERIALS -->
     <section class="product-detail" id="materials">
         <div class="container">
-            <div class="product-detail-visual" style="background:linear-gradient(135deg,#1a1a2e,#16213e)">
-                <div class="icon">📚</div>
-            </div>
+            <div class="product-detail-visual" style="background-image:url('images/detail-materials.jpg')"></div>
             <div class="product-detail-info">
                 <h2 class="en">EV Repair Materials</h2>
                 <h2 class="cn">电车维修资料</h2>
@@ -336,9 +328,7 @@
     <!-- 4. COMPONENT PROCUREMENT -->
     <section class="product-detail reverse" id="components">
         <div class="container">
-            <div class="product-detail-visual" style="background:linear-gradient(135deg,#0045A5,#059669)">
-                <div class="icon">📦</div>
-            </div>
+            <div class="product-detail-visual" style="background-image:url('images/detail-components.jpg')"></div>
             <div class="product-detail-info">
                 <h2 class="en">Component Procurement</h2>
                 <h2 class="cn">配件代采</h2>
