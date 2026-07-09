@@ -86,11 +86,8 @@
 
         /* IMAGE GALLERY */
         .gallery-grid{display:grid;grid-template-columns:2fr 1fr;grid-template-rows:auto auto;gap:16px}
-        .gallery-item{border-radius:14px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:600;font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;overflow:hidden;min-height:220px}
-        .gallery-item--large{grid-row:span 2;min-height:460px;font-size:20px}
-        .gallery-item:nth-child(1){background:linear-gradient(135deg,#07192F,#0045A5)}
-        .gallery-item:nth-child(2){background:linear-gradient(135deg,#003580,#00A3FF)}
-        .gallery-item:nth-child(3){background:linear-gradient(135deg,#1a1a2e,#16213e)}
+        .gallery-item{border-radius:14px;overflow:hidden;background-size:cover;background-position:center;min-height:220px}
+        .gallery-item--large{grid-row:span 2;min-height:460px}
 
         /* CTA */
         .cta-banner{background:linear-gradient(135deg,var(--primary-dark),var(--primary));padding:60px 0;text-align:center;color:#fff}
@@ -285,18 +282,9 @@
                 <h2 class="cn">走进AAPTEC</h2>
             </div>
             <div class="gallery-grid fade-up">
-                <div class="gallery-item gallery-item--large">
-                    <span class="en">Training Center</span>
-                    <span class="cn">培训中心</span>
-                </div>
-                <div class="gallery-item">
-                    <span class="en">EV Lab</span>
-                    <span class="cn">新能源实验室</span>
-                </div>
-                <div class="gallery-item">
-                    <span class="en">Workshop</span>
-                    <span class="cn">实训车间</span>
-                </div>
+                <div class="gallery-item gallery-item--large" style="background-image:url('images/photo-training-center.jpg')"></div>
+                <div class="gallery-item" style="background-image:url('images/photo-ev-lab.jpg')"></div>
+                <div class="gallery-item" style="background-image:url('images/photo-workshop.jpg')"></div>
             </div>
         </div>
     </section>
